@@ -79,8 +79,9 @@ useHead({
       </NuxtLink>
       <nav>
         <NuxtLink to="/about">About</NuxtLink>
-        <NuxtLink to="/works/1">works 1</NuxtLink>
-        <NuxtLink to="/works/2">works 2</NuxtLink>
+        <NuxtLink to="/works">Works</NuxtLink>
+        <NuxtLink to="/exhibitions">Exhibitions</NuxtLink>
+        <!-- <NuxtLink to="/serial/2">serial 2</NuxtLink> -->
       </nav>
     </header>
     <CustomLoadingIndicator />
@@ -124,9 +125,9 @@ useHead({
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
     nav > a{
-      margin: 0 .25rem;
+      margin: 0 1rem;
     }
   }
   >footer{

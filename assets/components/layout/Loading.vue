@@ -14,12 +14,14 @@ const show = () => {
   clear()
   // 僅允許在客戶端進行狀態的改變
   if (process.client) {
-	  if (throttle > 0) {
+    if (throttle > 0) {
 	    throttleTimer = setTimeout(() => {
-	      isLoading.value = true
+        isLoading.value = true
         isTransparent.value = false
 	    }, throttle)
 	  } else {
+      // 目前都僅測到這種
+      console.log(2);
 	    isLoading.value = true
 	    isTransparent.value = false
 	  }
@@ -29,14 +31,15 @@ const hide = () => {
   clear()
   // 僅允許在客戶端進行狀態的改變
   if (process.client) {
-    // 至少持續 1秒
+    // if(!isLoading.value){
+    //   isLoading.value = true
+    // }
     setTimeout(() => {
       isTransparent.value = true
-	  }, 1000)
-    // 至少持續 2秒
-    setTimeout(() => {
-	    isLoading.value = false
-	  }, 2000)
+      setTimeout(() => {
+        isLoading.value = false
+      }, 800)
+	  }, 800)
   }
 }
 
@@ -96,20 +99,17 @@ router.afterEach((_to, _from, failure) => {
   top: 0;
   left: 0;
   z-index: 10;
-  // 模糊效果
-  background-color: rgb(255 255 255 / 0.9);
-  backdrop-filter: blur(4px);
-  transition-property: background-color, visibility, opacity;
-  transition-duration: 2s;
+  background-color: var(--white);
+  transition-property: background-color, opacity;
+  transition-duration: 1.6s;
   &.loader-visible{
-    visibility: visible;
     opacity: 1;
   }
   &.loader-transparent{
-    opacity: 0;
+    opacity: 0.5;
   }
   &.loader-hidden{
-    visibility: hidden;
+    opacity: 0;
     pointer-events: none;
   }
   .sprite {
@@ -135,12 +135,12 @@ router.afterEach((_to, _from, failure) => {
   //   animation: walker 1s steps(5) infinite;
   // }
 }
-// @keyframes walker {
-//   from {background-position:0 0;}
-//   to {background-position:0 -4000px;}
-// }
 @keyframes fly {
   from {background-position:0 0;}
   to {background-position:-6526px 0;}
 }
+// @keyframes walker {
+//   from {background-position:0 0;}
+//   to {background-position:0 -4000px;}
+// }
 </style>
