@@ -1,18 +1,15 @@
 <script setup>
-import { seriesList } from '@/assets/data/worksList'
-
-// import { useRoute } from 'vue-router'
-// const route = useRoute()
+import { worksList } from '@/assets/data/worksList'
 </script>
 
 <template>
   <main>
-    <section v-for="series in seriesList" :key="series.name">
+    <section v-for="item in worksList" :key="item.name">
       <header>
-        <h2>系列名稱{{ series.name }}</h2>
+        <h2># 00{{ item.series }}</h2>
         <nuxt-link 
-          :key="series.name"
-          :to="{ name: 'series-name-all', params: { name: series.name} }"
+          :key="item.series"
+          :to="{ name: 'series-name-all', params: { name: item.series} }"
         >
           More
         </nuxt-link>
@@ -25,9 +22,26 @@ import { seriesList } from '@/assets/data/worksList'
             :loop="true"
             :navigation="true"
           >
-            <swiper-slide v-for="work in series.works" :key="work.name">
+            <swiper-slide v-for="work in item.works" :key="work.index">
               <div class="workSection-swiper">
-                <NuxtImg :src="work.img" />
+                <nuxt-link 
+                  :key="work.index"
+                  :to="{ 
+                    name: 'series-name-id', 
+                    params: { 
+                      name: item.series,
+                      id: work.index
+                    }
+                  }"
+                >
+                  <CldImage
+                    v-if="work.img"
+                    :src="work.img"
+                    :alt="work.nameTw"
+                    width="600"
+                    height="600"
+                  />
+                </nuxt-link>
               </div>
             </swiper-slide>
           </swiper-container>
@@ -39,23 +53,19 @@ import { seriesList } from '@/assets/data/worksList'
 
 <style lang="scss" scoped>
 main{
-  padding: 3rem 0 6rem 0;
-  // background-color: #ddd;
+  padding: 15vh 0;
 }
 section{
   width: 100%;
   max-width: 768px;
-  height: auto;
   margin: 0 auto 2rem;
+
   flex-direction: column;
   >header{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    >h2{
-      color: #111;
-    }
   }
   .series{
     width: 100%;

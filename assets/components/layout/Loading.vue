@@ -21,7 +21,6 @@ const show = () => {
 	    }, throttle)
 	  } else {
       // 目前都僅測到這種
-      console.log(2);
 	    isLoading.value = true
 	    isTransparent.value = false
 	  }

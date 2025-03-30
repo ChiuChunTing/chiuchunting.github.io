@@ -1,69 +1,48 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { seriesList } from '@/assets/data/worksList'
+import { worksList } from '@/assets/data/worksList'
+import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
+const router = useRouter()
+const seriesName = route.params.name
+const targetSeries = worksList.find(item => item.series === seriesName)
+if (!targetSeries) {
+  router.push('/404')
+}
 </script>
 
 <template>
-  <main>
-    <header>
-      <h1>系列作品{{ route.params.name }}</h1>
+  <main v-if="targetSeries" class="grid">
+    <header class="grid-header">
+      <h1># 00{{ seriesName }}</h1>
     </header>
-    <template v-for="series in seriesList" :key="series.name">
-      <section v-if="route.params.name === series.name" class="grid-container">
-        <nuxt-link 
-          v-for="work in series.works" 
-          :key="work.name"
-          :to="{ name: 'series-name-id', params: { name: series.name, id: work.name} }"
-        >
-          <NuxtImg :src="work.img" />
-        </nuxt-link>
-      </section>
-    </template>
+    <section class="grid-container">
+      <nuxt-link 
+        v-for="work in targetSeries.works" 
+        :key="work.index"
+        :to="{ 
+          name: 'series-name-id', 
+          params: { 
+            name: targetSeries.series, 
+            id: work.index
+          }
+        }"
+        class="grid-item"
+      >
+        <CldImage
+          v-if="work.img"
+          :src="work.img"
+          width="987"
+          height="987"
+          :alt="work.nameTw"
+        />
+      </nuxt-link>
+    </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
 main{
-  margin-bottom: 6rem;
-}
-header{
-  text-align: center;
-  margin: 4rem auto 6rem;
-  h1{
-    font-size: 1.2rem;
-  }
-}
-.grid-container {
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 預設三欄 */
-  grid-auto-rows: auto; /* 自動調整行高 */
-  align-items: stretch; /* 子項目高度撐滿行高 */
-  gap: 1rem; /* 欄間距 */
-
-  .grid-item {
-    aspect-ratio: 1 / 1;
-    img{
-      max-width: 100%; /* 確保圖片不超過欄寬 */
-      height: auto;    /* 保持圖片比例 */
-    }
-  }
-}
-/* 平板模式 */
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* 兩欄 */
-  }
-}
-
-/* 手機模式 */
-@media (max-width: 480px) {
-  .grid-container {
-    grid-template-columns: 1fr; /* 一欄 */
-  }
+  padding: 3rem 0;
+  margin-bottom: 15rem;
 }
 </style>

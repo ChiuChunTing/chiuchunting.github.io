@@ -6,12 +6,12 @@
   --whiteOpacity1: rgba(255,255,255, 0.3);
   --bg: #fcfafb;
   --textDark: #222;
-  --textGrey: #666;
+  --textGrey: #7d7c7c;
 }
 
 body {
   background-color: var(--white);
-  color: var(--textDark);
+  color: var(--textGrey);
 }  
 
 a{
@@ -30,7 +30,6 @@ section{
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 90vh;
 }
 
 .swiper-wrapper {
@@ -40,3 +39,67 @@ section{
   }
 }
 
+.grid{
+  padding-bottom: 5rem;
+
+  &-header{
+    text-align: center;
+    margin: 4rem auto 6rem;
+    /* 平板模式 */
+    @media (max-width: 768px) {
+      margin: 3rem auto 4rem;
+    }
+    /* 手機模式 */
+    @media (max-width: 480px) {
+      margin: 2rem auto 5rem;
+    }
+    .nav{
+      width: 100%;
+      text-align: left;
+    }
+    h1{
+      font-size: 1.2rem;
+    }
+  }
+
+  &-container {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 預設三欄 */
+    grid-auto-rows: auto; /* 自動調整行高 */
+    // align-items: stretch; /* 子項目高度撐滿行高 */
+    align-items: center; /* 子項目高度撐滿行高 */
+    gap: 1.5rem; /* 欄間距 */
+  
+    /* 平板模式 */
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr); /* 兩欄 */
+      gap: 2rem 1rem;
+    }
+  
+    /* 手機模式 */
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr; /* 一欄 */
+      gap: 3rem;
+    }
+  }
+
+  &-item {
+    img{
+      width: 100%; /* 確保圖片不超過欄寬 */
+      height: auto;    /* 保持圖片比例 */
+    }
+  }
+}
+ul{
+  list-style-type: circle;
+  li{
+    line-height: 1.8;
+    border-bottom: 1px solid #ddd;
+    color: #7d7c7c;
+  }
+}

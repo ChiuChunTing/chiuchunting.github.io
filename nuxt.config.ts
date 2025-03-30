@@ -1,9 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-02-20',
   devtools: { enabled: true },
-  modules: ['@nuxt/image', 'nuxt-swiper', 'nuxt-swiper'],
+  modules: ['@nuxt/image', '@nuxtjs/cloudinary', 'nuxt-swiper', 'nuxt-swiper'],
+  plugins: ['~/plugins/gsap.client.ts'],
   // image: {
     // q: 50,
     // alias: {
@@ -24,7 +25,6 @@ export default defineNuxtConfig({
     // },
   // },
   css: [
-    'locomotive-scroll/dist/locomotive-scroll.css',
     '~/assets/scss/reset.scss',
     '~/assets/scss/main.scss',
   ]
