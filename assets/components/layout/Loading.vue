@@ -121,6 +121,11 @@ router.afterEach((_to, _from, failure) => {
     height:380px;
     background-image:url('@/assets/img/fly.webp');	
     animation: fly 1.6s steps(12) infinite;
+
+    @media (max-width: 600px) {
+      margin-left: -20%;
+      transform: scale(.6);
+    }
   }
   // .sprite2{
   //   display:block;	

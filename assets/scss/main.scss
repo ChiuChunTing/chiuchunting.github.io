@@ -7,18 +7,27 @@
   --bg: #fcfafb;
   --textDark: #222;
   --textGrey: #7d7c7c;
+  --textGrey2: #9d9c9c;
+  --textGrey3: #e5e5e5;
+  --textGreyBlue: #acb7b8;
+  --textGreyBlue2: #c9cfde;
+
+  --swiper-pagination-color: #acb7b8;
 }
 
 body {
   background-color: var(--white);
   color: var(--textGrey);
-}  
+  line-height: 1.6;
 
-a{
-  text-decoration: none;
-  color: var(--textGrey);
-  cursor: pointer;
-}
+  font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+}  
 
 main{
   position: relative;
@@ -30,6 +39,33 @@ section{
   justify-content: center;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
+}
+
+p{
+  margin: 0;
+  font-size: 1rem;
+}
+
+a,
+button,
+h1{
+  font-family: "Apercu Mono Pro", "Lucida Typewriter", monospace;
+  color: var(--textGrey2);
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+a,
+button{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button{
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 
 .swiper-wrapper {
@@ -41,33 +77,36 @@ section{
 
 .grid{
   padding-bottom: 5rem;
+  width: 100%;
+  max-width: 1024px;
+  margin: auto;
+  box-sizing: border-box;
+
+  /* 平板模式 */
+  @media (max-width: 1024px) {
+    padding: 1.5rem;
+  }
 
   &-header{
-    text-align: center;
-    margin: 4rem auto 6rem;
-    /* 平板模式 */
-    @media (max-width: 768px) {
-      margin: 3rem auto 4rem;
-    }
+    display: flex;
+    justify-content: center;
+
+    margin: 4rem auto;
     /* 手機模式 */
     @media (max-width: 480px) {
-      margin: 2rem auto 5rem;
+      margin-bottom: 2rem;
     }
     .nav{
       width: 100%;
       text-align: left;
     }
     h1{
-      font-size: 1.2rem;
+      // font-size: 1.2rem;
+      border-bottom: 3px double var(--textGrey3);
     }
   }
 
-  &-container {
-    width: 100%;
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  
+  &-container {  
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 預設三欄 */
     grid-auto-rows: auto; /* 自動調整行高 */
@@ -84,7 +123,7 @@ section{
     /* 手機模式 */
     @media (max-width: 480px) {
       grid-template-columns: 1fr; /* 一欄 */
-      gap: 3rem;
+      gap: 1rem;
     }
   }
 
@@ -95,11 +134,17 @@ section{
     }
   }
 }
+
 ul{
   list-style-type: circle;
-  li{
-    line-height: 1.8;
-    border-bottom: 1px solid #ddd;
-    color: #7d7c7c;
-  }
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+li{
+  font-size: 0.9rem;
+  line-height: 2.25;
+  border-bottom: 1px solid var(--textGreyBlue2);
+  border-bottom-style: dotted;
+  color: var(--textGrey);
 }

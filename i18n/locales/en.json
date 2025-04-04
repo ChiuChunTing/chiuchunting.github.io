@@ -1,0 +1,17 @@
+{
+  "key": "nameEn",
+  "mediumKey": "mediumEn",
+
+  "name": "Chiu Chun-Ting",
+  "birth": "Born in 1987",
+  "educational": "Graduated in 2013 from the Master's Program in Art Creation and Education, National Hsinchu University of Education",
+
+  "soloExhibition": "Solo Exhibition",
+  "groupExhibition": "Group Exhibition",
+  "collection": "Collection",
+
+  "hello": "Hello!",
+  "language": "Language",
+  "home": "Home",
+  "about": "About"
+}

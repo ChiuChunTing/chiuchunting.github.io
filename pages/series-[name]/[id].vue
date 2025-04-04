@@ -63,12 +63,15 @@ watchEffect(() => {
           name: seriesIndex
         } 
       }">
-        < Series {{ seriesIndex }}
+        < {{ seriesIndex }}
       </nuxt-link>
+      <button>
+        share
+      </button>
     </header>
 
     <section v-if="targetWork" class="frame">
-      <div class="page" v-if="prevWork || nextWork">
+      <!-- <div class="page" v-if="prevWork || nextWork">
         <nuxt-link 
           v-if="prevWork"
           :to="{ 
@@ -93,17 +96,20 @@ watchEffect(() => {
         >
           >
         </nuxt-link>
-      </div>
+      </div> -->
 
       <CldImage
-        v-if="targetWork.img"
         :src="targetWork.img"
-        :alt="targetWork.nameTw"
+        :alt="targetWork[$t('key')] || ''"
+        width="800"
+        height="800"
+        placeholder="blur"
+        loading="lazy"
       />
-      <div class="info">
-        <p>{{ targetWork.nameTw }}</p>
+      <div class="info" v-if="targetWork">
+        <p>{{ targetWork[$t('key')] || '' }}</p>
         <p>{{ targetWork.size }}</p>
-        <p>{{ targetWork.mediumTw }}</p>
+        <p>{{ targetWork[$t('mediumKey')] || '' }}</p>
         <p>{{ targetWork.year }}</p>
       </div>
     </section>
@@ -114,23 +120,28 @@ watchEffect(() => {
 main{
   max-width: 1024px;
   margin: 0 auto;
-  padding: 10vh 1.5rem;
+  padding: 4rem 1.5rem;
   header{
-    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem auto 0;
     a{
       font-size: 1rem;
     }
   }
   .frame{
-    margin-bottom: 5rem;
     align-items: flex-end;
     gap: 1rem;
     .page{
       flex-basis: 3rem;
     }
     img{
+      height: calc(100vh - 18rem);
       max-width: calc(100% - 15rem);
-      height: 75vh;
+      min-height: 50vh;
+      object-fit: contain !important;
+      object-position: 50% 100%;
     }
     .info{
       flex-basis: 12rem;
@@ -141,7 +152,7 @@ main{
       }
     }
     /* 平板及手機模式 */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       margin-top: 0;
       padding: 0;
       flex-direction: column;
@@ -154,8 +165,12 @@ main{
         }
       }
       img{
-        max-width: none;
-        height: auto; 
+        height: auto;
+        max-width: 90vw !important;
+        max-height: auto !important;
+        min-height: auto !important;
+        aspect-ratio: auto !important;
+        object-position: 50% 50%;
       }
     }
   }

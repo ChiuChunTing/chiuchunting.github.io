@@ -1,4 +1,5 @@
 <script setup>
+import { Pagination } from 'swiper/modules'
 import { worksList } from '@/assets/data/worksList'
 </script>
 
@@ -6,7 +7,7 @@ import { worksList } from '@/assets/data/worksList'
   <main>
     <section v-for="item in worksList" :key="item.name">
       <header>
-        <h2># 00{{ item.series }}</h2>
+        <h1>{{ item.series }}</h1>
         <nuxt-link 
           :key="item.series"
           :to="{ name: 'series-name-all', params: { name: item.series} }"
@@ -17,32 +18,46 @@ import { worksList } from '@/assets/data/worksList'
       <div class="series">
         <ClientOnly>
           <swiper-container 
-            :slidesPerView="3"
-            :spaceBetween="30"
+            :slidesPerView="1"
+            :spaceBetween="12"
             :loop="true"
-            :navigation="true"
+            :breakpoints="{
+              368: {
+                slidesPerView: 2
+              },
+              1100: {
+                slidesPerView: 3,
+                spaceBetween: 24
+              }
+            }"
+            :pagination="{
+              dynamicBullets: true,
+              clickable: true,
+            }"
+            :modules="[Pagination]"
+
           >
             <swiper-slide v-for="work in item.works" :key="work.index">
-              <div class="workSection-swiper">
-                <nuxt-link 
-                  :key="work.index"
-                  :to="{ 
-                    name: 'series-name-id', 
-                    params: { 
-                      name: item.series,
-                      id: work.index
-                    }
-                  }"
-                >
-                  <CldImage
-                    v-if="work.img"
-                    :src="work.img"
-                    :alt="work.nameTw"
-                    width="600"
-                    height="600"
-                  />
-                </nuxt-link>
-              </div>
+              <nuxt-link 
+                :key="work.index"
+                :to="{ 
+                  name: 'series-name-id', 
+                  params: { 
+                    name: item.series,
+                    id: work.index
+                  }
+                }"
+              >
+                <CldImage
+                  v-if="work.img"
+                  :src="work.img"
+                  :alt="work[$t('key')] || ''"
+                  width="700"
+                  height="700"
+                  placeholder="blur"
+                  loading="lazy"
+                />
+              </nuxt-link>
             </swiper-slide>
           </swiper-container>
         </ClientOnly>
@@ -54,23 +69,36 @@ import { worksList } from '@/assets/data/worksList'
 <style lang="scss" scoped>
 main{
   padding: 15vh 0;
-}
-section{
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto 2rem;
-
-  flex-direction: column;
-  >header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  /* 平板模式 */
+  @media (max-width: 768px) {
+    padding: 5rem 1.5rem;
   }
-  .series{
+  section{
+    flex-direction: column;
     width: 100%;
-    img{
+    max-width: 1024px;
+    margin: 0 auto 4rem;
+    
+    @media (max-width: 1100px) {
+      max-width: 768px;
+    }
+    /* 平板模式 */
+    @media (max-width: 800px) {
+      max-width: none;
+    }
+
+    >header{
       width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .series{
+      width: 100%;
+      img{
+        width: 100%;
+        object-fit: contain !important;
+      }
     }
   }
 }
@@ -78,6 +106,12 @@ swiper-slide {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 18rem;
+  height: 28rem;
+  @media (max-width: 600px) {
+    height: 18rem;
+  }
+  @media (max-width: 368px) {
+    height: 20rem;
+  }
 }
 </style>

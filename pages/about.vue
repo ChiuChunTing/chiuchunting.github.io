@@ -11,7 +11,7 @@ onMounted(() => {
     ease: "power2",
     scrollTrigger: {
       trigger: ".about_header",
-      start: "top+=100px top",
+      start: "top+=25px top",
       end: "+=300px",
       scrub: true,
       // markers: { startColor: "white" }
@@ -20,80 +20,76 @@ onMounted(() => {
 })
 
 const soloExhibition = ref([
-  {year: 2016, name: '<春天的雷>伊日台中藝術空間，台中'},
-  {year: 2015, name: '<蜂人/我親愛的獨角獸 高雅婷、邱君婷雙個展>日光大道富錦藝術空間，台北'},
-  {year: 2014, name: '<Zaira-邱君婷、高慧芳雙個展>  madL替代空間，台北'},
-  {year: 2013, name: '<邱君婷>創作個展  毓繡美術館籌備處，南投'},
-  {year: 2012, name: '<一個偏僻的日夢-邱君婷個展>  日光大道富錦藝術空間，台北'},
-  {year: 2011, name: '<日夢基地> 新竹教育大學迴廊，新竹'}
+  {year: 2016, nameTw: '<春天的雷>伊日台中藝術空間，台中', nameEn: '<Thunder in Spring> Yi-Ri Taichung Art Space, Taichung'},
+  {year: 2015, nameTw: '<蜂人/我親愛的獨角獸 高雅婷、邱君婷雙個展>日光大道富錦藝術空間，台北', nameEn: '<Bee Man / My Dear Unicorn: Gao Ya-Ting, Chiu Chun-Ting Duo Exhibition> Sun Road Avenue Fook Chin Art Space, Taipei'},
+  {year: 2014, nameTw: '<Zaira-邱君婷、高慧芳雙個展> madL替代空間，台北', nameEn: '<Zaira - Chiu Chun-Ting, Kao Hui-Fang Duo Exhibition> madL Alternative Space, Taipei'},
+  {year: 2013, nameTw: '<邱君婷>創作個展 毓繡美術館籌備處，南投', nameEn: '<Chiu Chun-Ting> Solo Exhibition, Yu Xiu Museum Preparation Office, Nantou'},
+  {year: 2012, nameTw: '<一個偏僻的日夢-邱君婷個展> 日光大道富錦藝術空間，台北', nameEn: '<A Remote Daydream - Chiu Chun-Ting Solo Exhibition> Sun Road Avenue Fook Chin Art Space, Taipei'},
+  {year: 2011, nameTw: '<日夢基地> 新竹教育大學迴廊，新竹', nameEn: '<Daydream Base> Hsinchu National University of Education Corridor, Hsinchu'}
 ])
 
 const groupExhibition = ref([
-  {year: 2024, name: '<十年之前> 伊日藝術計畫，台北'},
-  {year: 2022, name: '<花園> 慢慢鞥活美，台北'},
-  {year: 2020, name: '<動物研究室> 241藝術空間，新竹'},
-  {year: 2018, name: '<粉樂町> 當代藝術展，BELLAVITA，台北'},
-  {year: 2018, name: '<Art Fair Tokyo>，東京，日本'},
-  {year: 2017, name: '<動物派對> 駁二當代館，高雄'},
-  {year: 2016, name: '<女書臉書 女性藝術家聯展> 桃園文化中心，桃園'},
-  {year: 2015, name: '<台大粉樂町> 台灣大學，台北'},
-  {year: 2015, name: '<童心未泯>  Galerie F&F，台北'},
-  {year: 2014, name: '<Art Apart Fair 2014>  PARKROYAL on Pickering Hotel，新加坡'},
-  {year: 2013, name: '<喃喃絮語-女性創作聯展>  臻品藝術空間，台中'},
-  {year: 2012, name: '<松山原創基地節-藝術超市> 松山菸廠，台北'},
-  {year: 2012, name: '<合流> 新竹教育大學毓繡藝術空間，新竹'},
-  {year: 2011, name: '<Zaira>  清華大學藝術工坊，新竹'},
-  {year: 2011, name: '<除此之外-雙個展>  金變堂藝術空間，新竹'},
-  {year: 2011, name: '<拆解‧日常>  大象藝術空間，台中'},
-  {year: 2011, name: '<餘溫與距離> KING空間，上海'},
-  {year: 2010, name: '<平行世代-兩岸青年藝術家交流展>  上海大學美術學院99創意中心，上海'}
+  {year: 2024, nameTw: '<十年之前> 伊日藝術計畫，台北', nameEn: '<Ten Years Ago> Yi-Ri Art Project, Taipei'},
+  {year: 2022, nameTw: '<花園> 慢慢鞥活美，台北', nameEn: '<Garden> Slowly Creative Beauty, Taipei'},
+  {year: 2020, nameTw: '<動物研究室> 241藝術空間，新竹', nameEn: '<Animal Lab> 241 Art Space, Hsinchu'},
+  {year: 2018, nameTw: '<粉樂町> 當代藝術展，BELLAVITA，台北', nameEn: '<Fun Town> Contemporary Art Exhibition, BELLAVITA, Taipei'},
+  {year: 2018, nameTw: '<Art Fair Tokyo>，東京，日本', nameEn: '<Art Fair Tokyo>, Tokyo, Japan'},
+  {year: 2017, nameTw: '<動物派對> 駁二當代館，高雄', nameEn: '<Animal Party> Pier-2 Art Center, Kaohsiung'},
+  {year: 2016, nameTw: '<女書臉書 女性藝術家聯展> 桃園文化中心，桃園', nameEn: '<Nushu Facebook: Women Artists Group Exhibition> Taoyuan Cultural Center, Taoyuan'},
+  {year: 2015, nameTw: '<台大粉樂町> 台灣大學，台北', nameEn: '<NTU Fun Town> National Taiwan University, Taipei'},
+  {year: 2015, nameTw: '<童心未泯> Galerie F&F，台北', nameEn: '<Childlike Heart> Galerie F&F, Taipei'},
+  {year: 2014, nameTw: '<Art Apart Fair 2014> PARKROYAL on Pickering Hotel，新加坡', nameEn: '<Art Apart Fair 2014> PARKROYAL on Pickering Hotel, Singapore'},
+  {year: 2013, nameTw: '<喃喃絮語-女性創作聯展> 臻品藝術空間，台中', nameEn: '<Whispering - Women Artists Group Exhibition> Zhenpin Art Space, Taichung'},
+  {year: 2012, nameTw: '<松山原創基地節-藝術超市> 松山菸廠，台北', nameEn: '<Songshan Original Base Festival - Art Supermarket> Songshan Tobacco Factory, Taipei'},
+  {year: 2012, nameTw: '<合流> 新竹教育大學毓繡藝術空間，新竹', nameEn: '<Confluence> Hsinchu National University of Education Yu Xiu Art Space, Hsinchu'},
+  {year: 2011, nameTw: '<Zaira> 清華大學藝術工坊，新竹', nameEn: '<Zaira> Tsinghua University Art Workshop, Hsinchu'},
+  {year: 2011, nameTw: '<除此之外-雙個展> 金變堂藝術空間，新竹', nameEn: '<Besides - Duo Exhibition> Jin Bian Tang Art Space, Hsinchu'},
+  {year: 2011, nameTw: '<拆解‧日常> 大象藝術空間，台中', nameEn: '<Disassemble Daily Life> Elephant Art Space, Taichung'},
+  {year: 2011, nameTw: '<餘溫與距離> KING空間，上海', nameEn: '<Afterglow and Distance> KING Space, Shanghai'},
+  {year: 2010, nameTw: '<平行世代-兩岸青年藝術家交流展> 上海大學美術學院99創意中心，上海', nameEn: '<Parallel Generations - Cross-Strait Youth Artists Exchange Exhibition> Shanghai University Fine Arts College 99 Creative Center, Shanghai'}
 ])
 
 const publicCollection = ref([
-  {year: 2013, name: '毓繡美術館巷弄美學計畫'},
-  {year: 2011, name: '國家美術館，青年藝術家典藏'}
+  {year: 2013, nameTw: '毓繡美術館巷弄美學計畫', nameEn: 'Yu Xiu Museum Lane Aesthetic Project'},
+  {year: 2011, nameTw: '國家美術館，青年藝術家典藏', nameEn: 'National Art Museum, Young Artists Collection'}
 ])
 
 </script>
 
 <template>
   <main>
-    <header
-      class="about_header"
-
-    >
-    </header>
+    <header class="about_header"></header>
 
     <section>
-      <h1 ref="artist">邱君婷</h1>
-      <p>1987年生</p>
-      <p>2013畢業於國立新竹教育大學藝術創作與教育碩士班</p>
+      <h1 ref="artist">{{ $t('name') }}</h1>
+      <p>{{ $t('birth') }}</p>
+      <p>{{ $t('educational') }}</p>
     </section>
 
     <section>
-      <h2>個展</h2>
+      <h2>{{ $t('soloExhibition') }}</h2>
       <ul>
         <li v-for="(item, index) in soloExhibition" :key="index">
           <span>{{ item.year }}</span>
-          {{ item.name }}
+          {{ item[$t('key')] || '' }}
         </li>
       </ul>
     </section>
     <section>
-      <h2>聯展</h2>
+      <h2>{{ $t('groupExhibition') }}</h2>
       <ul>
         <li v-for="(item, index) in groupExhibition" :key="index">
           <span>{{ item.year }}</span>
-          {{ item.name }}
+          {{ item[$t('key')] || '' }}
         </li>
       </ul>
     </section>
     <section>
-      <h2>典藏</h2>
+      <h2>{{ $t('collection') }}</h2>
       <ul>
         <li v-for="(item, index) in publicCollection" :key="index">
           <span>{{ item.year }}</span>
-          {{ item.name }}
+          {{ item[$t('key')] || '' }}
         </li>
       </ul>
     </section>
@@ -101,6 +97,9 @@ const publicCollection = ref([
 </template>
 
 <style lang="scss" scoped>
+main{
+  margin-bottom: 3rem;
+}
 header{
   position: relative;
   background-repeat: no-repeat;
@@ -126,7 +125,6 @@ header{
   }
 }
 section{
-  width: 100%;
   max-width: 768px;
   margin: auto;
 
@@ -135,9 +133,16 @@ section{
   align-items: flex-start;
 
   padding: 1rem;
+
   p{
-    margin: 0;
-    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+  &.btn{
+    position: fixed;
+    top: 15rem;
+    left: 10rem;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 }
 </style>

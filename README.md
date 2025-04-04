@@ -1,14 +1,19 @@
-# Nuxt Minimal Starter
+# 邱君婷 | Chiu Chun-Ting
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[🚀 訪問網站 | Visit Website](https://israynotarray.com/)
+
+📜 這是邱君婷的個人作品與展覽資訊網站，展示藝術創作與最新動態。
+
+Chiu Chun-Ting's personal portfolio website, showcasing artistic creations and the latest exhibition updates.
+
+
 
 ## Setup
 
-Make sure to install dependencies:
+安裝
 
 ```bash
-# pnpm
-pnpm install
+pnpm i
 ```
 
 ## Development Server
@@ -16,7 +21,6 @@ pnpm install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# pnpm
 pnpm dev
 ```
 
@@ -36,8 +40,6 @@ Locally preview production build:
 pnpm preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
 ## 目錄結構
 
 /pages: 用來定義路由，Nuxt 會根據檔案名稱自動產生路由。
@@ -45,5 +47,7 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 /layouts: 定義網站的頁面結構 (如 header、footer 等)。
 /assets: 儲存靜態資源，如圖片或 SCSS。
 /static: 不會經過 webpack 處理的靜態檔案。
+/i18n: 多國語言。
 
 1. [@nuxt/image](https://image.nuxt.com/get-started/installation)
+2. [@nuxt/i18n](https://i18n.nuxtjs.org/)

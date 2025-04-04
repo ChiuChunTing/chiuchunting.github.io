@@ -1,0 +1,17 @@
+{
+  "key": "nameTw",
+  "mediumKey": "mediumTw",
+
+  "name": "邱君婷",
+  "birth": "1987年生",
+  "educational": "2013畢業於國立新竹教育大學藝術創作與教育碩士班",
+
+  "soloExhibition": "個展",
+  "groupExhibition": "聯展",
+  "collection": "典藏",
+
+  "hello": "你好!",
+  "language": "語言",
+  "home": "首頁",
+  "about": "關於"
+}
