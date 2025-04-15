@@ -1,6 +1,8 @@
 <script setup>
 import { Pagination } from 'swiper/modules'
 import { worksList } from '@/assets/data/worksList'
+import WebFooter from '@/assets/components/layout/WebFooter.vue'
+
 </script>
 
 <template>
@@ -10,7 +12,12 @@ import { worksList } from '@/assets/data/worksList'
         <h1>{{ item.series }}</h1>
         <nuxt-link 
           :key="item.series"
-          :to="{ name: 'series-name-all', params: { name: item.series} }"
+          :to="{ 
+            name: 'series-name-all', 
+            params: { 
+              name: item.series
+            }
+          }"
         >
           More
         </nuxt-link>
@@ -63,6 +70,8 @@ import { worksList } from '@/assets/data/worksList'
         </ClientOnly>
       </div>
     </section>
+
+    <WebFooter />
   </main>
 </template>
 
@@ -76,6 +85,7 @@ main{
   section{
     flex-direction: column;
     width: 100%;
+    height: auto;
     max-width: 1024px;
     margin: 0 auto 4rem;
     
@@ -113,5 +123,9 @@ swiper-slide {
   @media (max-width: 368px) {
     height: 20rem;
   }
+}
+
+footer{
+  margin-top: 25vh;
 }
 </style>

@@ -22,6 +22,11 @@ export default defineNuxtConfig({
     strategy: 'no_prefix', // 不使用語言前綴
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
+  image: {
+    cloudinary: {
+      baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`
+    }
+  },
   plugins: ['~/plugins/gsap.client.ts'],
   // cloudinary: {
     // defaults: {

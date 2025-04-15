@@ -123,7 +123,7 @@ router.afterEach((_to, _from, failure) => {
     animation: fly 1.6s steps(12) infinite;
 
     @media (max-width: 600px) {
-      margin-left: -20%;
+      margin-left: -10%;
       transform: scale(.6);
     }
   }

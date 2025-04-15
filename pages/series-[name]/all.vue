@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { worksList } from '@/assets/data/worksList'
 import { useRoute, useRouter } from 'vue-router'
+import WebFooter from '@/assets/components/layout/WebFooter.vue'
+
 const route = useRoute()
 const router = useRouter()
 const seriesName = route.params.name
@@ -13,7 +15,7 @@ if (!targetSeries) {
 <template>
   <main v-if="targetSeries" class="grid">
     <header class="grid-header">
-      <h1># 00{{ seriesName }}</h1>
+      <h1>{{ seriesName }}</h1>
     </header>
     <section class="grid-container">
       <nuxt-link 
@@ -31,18 +33,32 @@ if (!targetSeries) {
         <CldImage
           v-if="work.img"
           :src="work.img"
-          width="987"
-          height="987"
-          :alt="work.nameTw"
+          width="800"
+          height="800"
+          :alt="work[$t('key')] || ''"
+          placeholder="blur"
+          loading="lazy"
         />
       </nuxt-link>
     </section>
+
+    <WebFooter />
+
   </main>
 </template>
 
 <style lang="scss" scoped>
 main{
-  padding: 3rem 0;
+  margin-top: 3rem;
   margin-bottom: 15rem;
+  .grid-item{
+    img{
+      object-fit: contain !important;
+    }
+  }
+}
+
+footer{
+  margin-top: 10vh;
 }
 </style>

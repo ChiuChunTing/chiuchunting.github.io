@@ -121,11 +121,11 @@ const logKey = (e) => {
                     <div class="slide__container">
                         <h2 class="slide__heading">Fragments of Devotion</h2>
                         <figure class="slide__img-cont">
-                            <NuxtImg 
+                            <!-- <NuxtImg 
                                 class="slide__img"
                                 src="/img/series4/2.jpg" 
                                 alt="主視覺"
-                            />
+                            /> -->
                             <!-- <img class="slide__img"
                                 src='https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NjMyMDUzOA&ixlib=rb-1.2.1&q=80&w=400'
                                 alt=''> -->
@@ -143,11 +143,11 @@ const logKey = (e) => {
                     <div class="slide__container">
                         <h2 class="slide__heading">Dreams Within the Snow</h2>
                         <figure class="slide__img-cont">
-                            <NuxtImg 
+                            <!-- <NuxtImg 
                                 class="slide__img"
                                 src="/img/series5/2.jpg" 
                                 alt="主視覺"
-                            />
+                            /> -->
                             <!-- <img class="slide__img"
                             src='https://images.unsplash.com/photo-1558603668-6570496b66f8?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NjMyMDUzOA&ixlib=rb-1.2.1&q=85&w=400'
                             alt=''> -->
@@ -165,16 +165,16 @@ const logKey = (e) => {
             </p>
             <figure class="overlay__img-cont"> 
                 <!-- <img class="image" src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NjMxOTU4Mw&ixlib=rb-1.2.1&q=80&w=800" /> -->
-                <NuxtImg 
+                <!-- <NuxtImg 
                     class="image"
                     src="/img/series4/1.jpg" 
                     alt="主視覺"
-                />
-                <NuxtImg 
+                /> -->
+                <!-- <NuxtImg 
                     class="image"
                     src="/img/series5/little-crown.jpg" 
                     alt="主視覺"
-                />
+                /> -->
                 <!-- <img class="image" src="https://images.unsplash.com/photo-1594666757003-3ee20de41568?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0NjMxOTcwOA&ixlib=rb-1.2.1&q=80&w=800" /> -->
             </figure>
             <NuxtLink 
@@ -256,7 +256,6 @@ const logKey = (e) => {
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
         }
     }
 }
@@ -318,7 +317,7 @@ const logKey = (e) => {
             position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: contain !important;
             object-position: 50% 50%;
         }
     }

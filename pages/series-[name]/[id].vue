@@ -2,6 +2,7 @@
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { worksList } from '@/assets/data/worksList'
+import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -51,7 +52,6 @@ watchEffect(() => {
   }
 })
 
-
 </script>
 
 <template>
@@ -65,9 +65,6 @@ watchEffect(() => {
       }">
         < {{ seriesIndex }}
       </nuxt-link>
-      <button>
-        share
-      </button>
     </header>
 
     <section v-if="targetWork" class="frame">
@@ -111,8 +108,15 @@ watchEffect(() => {
         <p>{{ targetWork.size }}</p>
         <p>{{ targetWork[$t('mediumKey')] || '' }}</p>
         <p>{{ targetWork.year }}</p>
+
+        <!-- <button>
+          share
+        </button> -->
       </div>
     </section>
+
+    <WebFooter />
+
   </main>
 </template>
 
@@ -120,19 +124,22 @@ watchEffect(() => {
 main{
   max-width: 1024px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 1.5rem;
+
   header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 1rem auto 0;
+    margin: 1rem auto;
     a{
       font-size: 1rem;
     }
   }
-  .frame{
+  section.frame{
+    height: auto;
     align-items: flex-end;
     gap: 1rem;
+    margin-bottom: 4rem;
     .page{
       flex-basis: 3rem;
     }
@@ -145,11 +152,17 @@ main{
     }
     .info{
       flex-basis: 12rem;
-      p{
+      p, button{
         margin: 0;
         line-height: 1.8;
         font-size: 0.8rem;
       }
+      button{
+        width: 100%;
+        text-align: right;
+        padding: 0;
+      }
+      margin-bottom: -2rem;
     }
     /* 平板及手機模式 */
     @media (max-width: 1024px) {
@@ -159,21 +172,25 @@ main{
       align-items: flex-end;
       .page,
       .info{
+        width: 100%;
         flex-basis: auto;
+        margin-bottom: 0;
         p{
           text-align: right;
+        }
+        button{
+          margin-top: 5rem;
+          text-align: center;
         }
       }
       img{
         height: auto;
         max-width: 90vw !important;
-        max-height: auto !important;
-        min-height: auto !important;
+        min-height: 50vh !important;
         aspect-ratio: auto !important;
         object-position: 50% 50%;
       }
     }
   }
 }
-
 </style>

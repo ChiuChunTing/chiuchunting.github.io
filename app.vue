@@ -1,11 +1,22 @@
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
 import { useRoute } from 'vue-router'
 import CustomLoadingIndicator from '~/assets/components/layout/Loading.vue'
 import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
-import Socials from '~/assets/components/layout/Socials.vue'
+
 const route = useRoute()
 const { locale } = useI18n()
-
+const scrollY = ref(0)
+onMounted(() => {
+  const onScroll = () => {
+    scrollY.value = Math.round(window.scrollY / window.innerHeight)
+  }
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onBeforeUnmount(() => {
+    window.removeEventListener('scroll', onScroll)
+  })
+})
 // const nuxtApp = useNuxtApp()
 // const unsubPageStart = nuxtApp.hook('page:start', show)
 // const unsubPageFinish = nuxtApp.hook('page:finish', hide)
@@ -59,9 +70,9 @@ watchEffect(() => {
       :height="5"
       color="repeating-linear-gradient(to right, rgb(174, 214, 223) 0%, rgb(42, 132, 194) 100%)"
     /> 
-    <header class="mainHeader">
+    <header class="mainHeader" :class="`block${scrollY}`">
       <NuxtLink to="/" class="homeLink">
-        邱君婷|Chiu Chun-Ting
+        邱君婷|Chiu Chun-Ting{{ scrollY }}
       </NuxtLink>
       <HamburgerMenu />
     </header>
@@ -69,11 +80,6 @@ watchEffect(() => {
     <CustomLoadingIndicator />
 
     <NuxtPage />
-
-    <footer>
-      <Socials />
-      <div>© 2025 Chiu Chun-Ting</div>
-    </footer>
   </div>
 </template>
 
@@ -81,22 +87,45 @@ watchEffect(() => {
 .main {
   position: relative;
   width: 100vw;
+  &.index{
+    .mainHeader{
+      display: none;
+      &.block5{
+        display: flex;
+      }
+    }
+  }
   &.about{
     padding: 0;
   }
   &.series-name-id{
     .mainHeader{
+      position: initial;
+      z-index: 1;
       padding-bottom: 0;
     }
-    .homeLink{
-      visibility: hidden;
+    // .homeLink{
+    //   visibility: hidden;
+    // }
+  }
+  &.exhibitions{
+    .mainHeader{
+      position: initial;
+      z-index: 1;
     }
   }
+
   .mainHeader{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 10;
+    /* 平板模式 */
+    // @media (max-width: 768px) {
+    //   position: initial;
+    //   z-index: 1;
+    // }
+
 
     display: flex;
     flex-direction: row;
@@ -111,42 +140,6 @@ watchEffect(() => {
       /* 平板模式 */
       @media (max-width: 768px) {
         font-size: 0.8rem; 
-      }
-    }
-  }
-  >footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 2rem;
-    color: var(--textGrey2);
-    .socials{
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  .socials{
-    display: flex;
-    flex-direction: row;
-    gap: 0.75rem;
-    margin: 1rem auto;
-    a{
-      display: inline-block;
-      width: 2.5rem;
-      height: 2.5rem;
-      background-position: center;
-      background-size: contain;
-      opacity: 0.9;
-      transition-property: opacity;
-      transition-duration: 1.6s;
-      &:hover{
-        opacity: 1;
-      }
-      &.fb{
-        background-image:url('@/assets/img/icons/fb_light.png');	
-      }
-      &.email{
-        background-image:url('@/assets/img/icons/mail_light.png');	
       }
     }
   }

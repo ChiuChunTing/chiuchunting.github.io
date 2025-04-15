@@ -45,6 +45,7 @@
     flex-direction: row;
     gap: 0.75rem;
     margin: 1rem auto;
+    background-color: var(--white);
     a{
       display: inline-block;
       width: 2.25rem;

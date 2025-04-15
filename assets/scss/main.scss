@@ -4,6 +4,7 @@
 
   --white: rgba(255,255,255, 1);
   --whiteOpacity1: rgba(255,255,255, 0.3);
+  --whiteOpacity2: rgba(255,255,255, 0.6);
   --bg: #fcfafb;
   --textDark: #222;
   --textGrey: #7d7c7c;
@@ -35,6 +36,7 @@ main{
 }
 
 section{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,9 +44,27 @@ section{
   box-sizing: border-box;
 }
 
+h6{
+  font-size: 1.25rem;
+  color: var(--textGrey);
+}
+
+p, b{
+  margin: 0 0 1.5rem 0;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  line-height: 1.8;
+}
+
 p{
-  margin: 0;
-  font-size: 1rem;
+  font-weight: 300;
+  color: var(--textGrey);
+}
+
+b{
+  display: inline-block;
+  font-weight: 400;
+  color: var(--textGrey2);
 }
 
 a,
@@ -73,6 +93,12 @@ button{
   &__inner {
     width: 100%;
   }
+}
+
+.context{
+  // 建議每行約 45-75 個字元（包含空格）。這是公認的最佳可讀範圍。
+  max-width: 45em;
+  margin: auto;
 }
 
 .grid{
@@ -147,4 +173,29 @@ li{
   border-bottom: 1px solid var(--textGreyBlue2);
   border-bottom-style: dotted;
   color: var(--textGrey);
+}
+
+.text-right{
+  text-align: right;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.border-link{
+  border-bottom: 2px solid var(--secondary);
+}
+
+.ml-auto{
+  margin-left: auto;
+}
+.mt-1{
+  margin-top: 1rem;
+}
+.mt-5{
+  margin-top: 5rem;
+}
+.mb-5{
+  margin-bottom: 5rem;
 }

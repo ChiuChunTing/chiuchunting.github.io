@@ -1,10 +1,10 @@
 {
+  "lang": "en",
   "key": "nameEn",
   "mediumKey": "mediumEn",
 
   "name": "Chiu Chun-Ting",
   "birth": "Born in 1987",
-  "educational": "Graduated in 2013 from the Master's Program in Art Creation and Education, National Hsinchu University of Education",
 
   "soloExhibition": "Solo Exhibition",
   "groupExhibition": "Group Exhibition",
@@ -13,5 +13,30 @@
   "hello": "Hello!",
   "language": "Language",
   "home": "Home",
-  "about": "About"
+  "about": "About",
+
+  "intro": {
+    "content1": "The works of Chiu Chun-ting unfold like maps of dreams—quiet, whispering inner theatres.",
+    "content2": "Through painting as her language, she constructs poetic spaces that drift between reality and imagination, memory and perception. Her recurring symbols—children, wolves, shells, beetles, moths, stars, and wings—serve both as characters and as dreamlike emblems, gently telling stories of shelter, embrace, and the soul’s journey.",
+    "content3": "Her compositions are often soft and tranquil, with warm hues and layered structures. Yet each detail holds deep meaning: the flight of a bird, the stillness of a wolf, the silent gaze shared between a child and a beetle—all become visual codes that guide the viewer through memory, dream, and the self. Chiu does not merely paint forms; she paints time and sensation, transforming viewing into an intimate, wordless gaze.",
+    "content4": "Her work draws deeply from literary worlds shaped by Borges, Kafka, Calvino, and Márquez, blending the density of symbolism with the openness of contemporary painting. She creates a visual syntax filled with narrative echoes and spiritual textures. To step into her paintings is to enter a library where dream and reality intertwine—each image a page waiting to be turned, each element a quiet dialectic of the self.",
+    "content5": "In her hands, to view is to soften, and the image becomes a form of arrival."
+  },
+
+  "exhibition": {
+    "content1": "The core concept of Soulscapes is founded upon a sustained inquiry into the nature of life, articulated through the use of multimedia approaches that seek to expand the possibilities of narrative.",
+    "content2": "This body of work continues to explore themes that have long been central to my artistic practice—namely, the fluidity of life, the essence of existence, and the intricate relationship between human beings and the natural world. Adopting the perspective of an explorer, the works portray the earth and its myriad beings as sources of embrace and refuge, where the rhythms of life circulate in an ongoing cycle of renewal.",
+    "content3": "In terms of form, the works are constructed through the layering and interweaving of imagery, deliberately obscuring boundaries to generate an open-ended symbolic language and a fluid narrative structure. Existing stories are extended and reinterpreted, giving rise to new meanings. Each piece becomes a theatrical space, inviting viewers into a contemplative journey that traverses the realms of dream and reality, time and space, narrative and symbol.",
+    "content4": "Each work is anchored by a central painting, around which peripheral elements are arranged like strata of time and memory. The dialogue between the internal composition and its surrounding installation creates a mirroring effect, forming a visual and conceptual echo without end. This structure draws inspiration from the multi-layered narratives found in the literature of Jorge Luis Borges. Within these overlapping narrative fields, each character, setting, and symbolic motif functions as a fragment of a broader narrative, allowing viewers to enter and interpret the work from multiple perspectives, thus initiating a personal exploration of memory and imagination.",
+    "content5": "Ultimately, through this ongoing inquiry into the meaning of life, the works construct a visual space saturated with symbolism, recollection, and metamorphosis. The viewer is invited to engage in a different mode of seeing—one that moves fluidly between detail and totality, between symbolic resonance and tangible reality, between dream and remembrance—in search of their own unfolding story.",
+    "title": "Landscapes of the Soul",
+    "location": "BACK-Y",
+
+    "seo": {
+      "title": "Exhibition | Landscapes of the Soul | Chiu Chun-Ting",
+      "description": "Discover Chiu Chun-Ting's latest exhibition 'Landscapes of the Soul' at BACK-Y, from {start} to {end}.",
+      "twitterTitle": "Landscapes of the Soul | Chiu Chun-Ting",
+      "twitterDescription": "Chiu Chun-Ting's newest exhibition 'Landscapes of the Soul' is on view at BACK-Y until {end}."
+    }
+  }
 }

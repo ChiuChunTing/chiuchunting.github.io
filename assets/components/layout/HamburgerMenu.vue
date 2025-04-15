@@ -22,7 +22,6 @@
 
 <template>
   <div class="menu-group">
-
     <button 
       class="menu-btn"
       @click="updatemenuOpen"
@@ -87,6 +86,7 @@
     font-size: 0.6rem;
   }
 }
+
 .menu{
   &-group{
     display: flex;
