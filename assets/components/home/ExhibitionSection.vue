@@ -1,13 +1,18 @@
-<script setup lang="ts">
-
+<script setup>
+const { t } = useI18n()
+const altName = t('exhibition.seo.title')
 </script>
 
 <template>
   <section class="exhibitionsContainer context mb-5">
-    <NuxtLink to="/exhibitions">
-      <NuxtImg 
-        src="/img/exhibitionImg.jpg" 
-        alt="展覽訊息"
+    <NuxtLink to="/exhibitions" class="w-full">
+      <CldImage 
+        src="exhibition_2025" 
+        placeholder="blur"
+        loading="lazy"
+        width="762"
+        height="953"
+        :alt="altName"
       />
     </NuxtLink>
 
@@ -20,7 +25,7 @@
       <b>{{ $t('exhibition.content5') }}</b>
     </div> -->
 
-    <NuxtLink to="/exhibitions" class="border-link ml-auto mt-1">+ Details</NuxtLink>
+    <NuxtLink to="/exhibitions" class="w-6 border-link ml-auto mt-1">+ Details</NuxtLink>
   </section>
 </template>
 

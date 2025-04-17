@@ -25,6 +25,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Use variables
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ vars.CLOUDINARY_CLOUD_NAME }}
+
       - name: Checkout
         uses: actions/checkout@v4
 

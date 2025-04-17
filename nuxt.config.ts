@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   app: {
     baseURL: '/chiu-portfolio/'
+    // baseURL: '/'
   },
   ssr: false,
   compatibilityDate: '2025-02-20',

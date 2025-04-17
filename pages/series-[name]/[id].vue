@@ -109,6 +109,7 @@ watchEffect(() => {
         <p>{{ targetWork[$t('mediumKey')] || '' }}</p>
         <p>{{ targetWork.year }}</p>
 
+        <button></button>
         <!-- <button>
           share
         </button> -->
@@ -144,7 +145,7 @@ main{
       flex-basis: 3rem;
     }
     img{
-      height: calc(100vh - 18rem);
+      height: 75vh;
       max-width: calc(100% - 15rem);
       min-height: 50vh;
       object-fit: contain !important;

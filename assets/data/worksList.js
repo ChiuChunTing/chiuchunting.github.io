@@ -3,7 +3,17 @@ export const worksList = [
     series: '2023-2025', 
     works: [
       {
-        'index': '1_stream_of_celebration',
+        'index': '1_The_Child_of_Radiance',
+        'nameTw': '靈光之子',
+        'nameEn': 'The Child of Radiance',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '123x98cm',
+        'year': 2025,
+        'img': 'the-child-of-radiance-123x98cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '2_stream_of_celebration',
         'nameTw': '慶典之泉',
         'nameEn': 'Stream of celebration',
         'mediumTw': '壓克力彩、有機玻璃、麻',
@@ -13,8 +23,18 @@ export const worksList = [
         'img': 'stream_of_celebration-80x80cm-acrylic-plexiglass-linen-2023'
       },
       {
-        'index': '2_the_book_of_sun_and_moon',
-        'nameTw': '日月之書',
+        'index': '3_Dream_Of_The_Earth',
+        'nameTw': '大地之夢',
+        'nameEn': 'Dream_Of_The_Earth',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '88x72cm',
+        'year': 2025,
+        'img': 'dream-of-earth-88x72cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '4_the_book_of_sun_and_moon',
+        'nameTw':'日月之書',
         'nameEn': 'The Book Of Sun And Moon',
         'mediumTw': '壓克力彩、有機玻璃、麻',
         'mediumEn': 'Acrylic, Plexiglass, Linen',
@@ -23,14 +43,94 @@ export const worksList = [
         'img': 'book-of-sun-and-moon-78x60cm-acrylic-plexi-linen-2025'
       },
       {
-        'index': '3_dream_of_the_earth',
-        'nameTw': '慶典之泉',
-        'nameEn': 'Dream Of The Earth',
+        'index': '5_The_Song_of_the_Sky',
+        'nameTw': '蒼穹之歌',
+        'nameEn': 'The Song of the Sky',
         'mediumTw': '壓克力彩、有機玻璃、麻',
         'mediumEn': 'Acrylic, Plexiglass, Linen',
-        'size': '88x72cm',
+        'size': '76x69cm',
         'year': 2025,
-        'img': 'dream-of-earth-88x72cm-acrylic-plexi-linen-2025'
+        'img': 'the-song-of-the-sky-76x69cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '9_The_Flower_of_Time_the_Nameless_Play',
+        'nameTw': '時光之花 無名之劇',
+        'nameEn': 'The Flower of Time the Nameless Play',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-flower-of-time-the-nameless-play-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '10_The_River_of_Memory',
+        'nameTw': '記憶之河',
+        'nameEn': 'The River of Memory',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-river-of-memory-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '11_The_Mountain_from_Beneath_the_Sea',
+        'nameTw': '來自海底的山',
+        'nameEn': 'The Mountain from Beneath the Sea',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-mountain-from-beneath-the-sea-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '12_The_Secret_in_the_Snow',
+        'nameTw': '雪中的祕語',
+        'nameEn': 'The Secret in the Snow',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-secret-in-the-snow-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '13_The_Flight_Before_Dawn',
+        'nameTw': '黎明前的飛行',
+        'nameEn': 'The Flight Before Dawn',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-flight-before-dawn-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '14_The_Whisper_of_the_Sea',
+        'nameTw': '海的耳語',
+        'nameEn': 'The Whisper of the Sea',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-whisper-of-the-sea-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '15_The_Dream’s_Threshold',
+        'nameTw': '夢的入口',
+        'nameEn': 'The Dream’s Threshold',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-dreams-threshold-38x39cm-acrylic-plexi-linen-2025'
+      },
+      {
+        'index': '16_The_Crown_of_Light',
+        'nameTw': '光的冠冕',
+        'nameEn': 'The Crown of Light',
+        'mediumTw': '壓克力彩、有機玻璃、麻',
+        'mediumEn': 'Acrylic, Plexiglass, Linen',
+        'size': '38x39cm',
+        'year': 2025,
+        'img': 'the-crown-of-light-38x39cm-acrylic-plexi-linen-2025'
       },
     ]
   },
@@ -276,6 +376,16 @@ export const worksList = [
         'size': '44×33cm',
         'year': 2016,
         'img': 'gentle-dream-44×33cm-acrylic-mixed-2016'
+      },
+      {
+        'index': '13_hand',
+        'nameTw': '手',
+        'nameEn': 'Hand',
+        'mediumTw': '壓克力彩、複合媒材',
+        'mediumEn': 'Acrylic, mixed media',
+        'size': 'L:24_8cm, R:26x7.3cm',
+        'year': 2016,
+        'img': 'hand-24×8cm-left-26x7cm-right-acrylic-mixed-2016'
       }
     ]
   },
@@ -374,7 +484,7 @@ export const worksList = [
       },
       {
         'index': '10_milk-lake',
-        'nameTw': '',
+        'nameTw': 'Milk Lake',
         'nameEn': 'Milk Lake',
         'mediumTw': '壓克力彩、複合媒材',
         'mediumEn': 'Acrylic, mixed media',
@@ -384,7 +494,7 @@ export const worksList = [
       },
       {
         'index': '11_born',
-        'nameTw': '',
+        'nameTw': 'Born',
         'nameEn': 'Born',
         'mediumTw': '壓克力彩、複合媒材',
         'mediumEn': 'Acrylic, mixed media',
@@ -459,7 +569,7 @@ export const worksList = [
       },
       {
         'index': '6_swaying-grass',
-        'nameTw': '一個秘密',
+        'nameTw': '搖曳的小草',
         'nameEn': 'Swaying Grass',
         'mediumTw': '壓克力彩、複合媒材',
         'mediumEn': 'Acrylic, mixed media',
@@ -476,6 +586,16 @@ export const worksList = [
         'size': 'Ø50cm',
         'year': 2015,
         'img': 'ready-to-pause-Φ50cm-acrylic-mixed-2015'
+      },
+      {
+        'index': '8_symbiosis',
+        'nameTw': '共生',
+        'nameEn': 'Symbiosis',
+        'mediumTw': '壓克力彩、複合媒材',
+        'mediumEn': 'Acrylic, mixed media',
+        'size': 'Ø50cm',
+        'year': 2014,
+        'img': 'symbiosis-Φ50cm-acrylic-mixed-2014'
       }
     ]
   },

@@ -2,8 +2,7 @@
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
-const { locale, t } = useI18n()
-
+const { t } = useI18n()
 const start = '2025/04/24'
 const end = '2025/05/17'
 
@@ -12,25 +11,30 @@ useSeoMeta({
   ogTitle: t('exhibition.seo.title'),
   description: t('exhibition.seo.description', { start, end }),
   ogDescription: t('exhibition.seo.description', { start, end }),
-  ogImage: 'https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg',
-  ogImageSecureUrl: 'https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg',
-  // ogUrl: 'https://yourdomain.com/' + locale.value + '/exhibition/landscapes-of-the-soul',
-  twitterImage: 'https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg',
+  ogImage: 'https://res.cloudinary.com/dxddw5huw/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1744778738/exhibition_2025.jpg',
+  ogImageSecureUrl: 'https://res.cloudinary.com/dxddw5huw/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1744778738/exhibition_2025.jpg',
+  ogUrl: 'https://chiuchunting.github.io/chiu-portfolio/exhibitions',
+  twitterImage: 'https://res.cloudinary.com/dxddw5huw/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1744778738/exhibition_2025.jpg',
   twitterCard: 'summary_large_image',
   twitterTitle: t('exhibition.seo.twitterTitle'),
   twitterDescription: t('exhibition.seo.twitterDescription', { end }),
-  ogImageWidth: 1280,
-  ogImageHeight: 720,
+  ogImageWidth: 1000,
+  ogImageHeight: 563,
 })
 
 </script>
 
 <template>
   <section>
-    <NuxtImg 
-      src="/img/exhibitionImg.jpg" 
-      :alt="t('exhibition.seo.title')"
+    <CldImage 
+      src="exhibition_2025" 
+      placeholder="blur"
+      loading="lazy"
+      :alt="t('exhibition.seo.title') || '最新展覽'"
+      width="762"
+      height="953"
     />
+
     <div class="info">
       <p>{{t('exhibition.title')}}。</p>
       <p>{{t('exhibition.location')}}。</p>

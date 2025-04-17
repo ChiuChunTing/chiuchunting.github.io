@@ -33,15 +33,17 @@ const setupScrollAnimations = ({ isMobile }: { isMobile: boolean }) => {
     })
     .fromTo(".wave", 
       { 
-        left: isMobile ? "-50%" : "-40%", 
-        width: isMobile ? "220%" : "190%", 
-        bottom: isMobile ? "30vh" : "5vh", 
+        left: isMobile ? "-50%" : "-22.5%%", 
+        width: isMobile ? "220%" : "150%%", 
+        height: isMobile ? "220%" : "150%", 
+        bottom: isMobile ? "30vh" : "-8vh", 
         opacity: 0 
       }, 
       { 
         left: isMobile ? "-55%" : "-30%", 
         width: isMobile ? "230%" : "175%", 
-        bottom: isMobile ? "35vh" : "15vh", 
+        height: isMobile ? "220%" : "175%", 
+        bottom: isMobile ? "35vh" : "5vh", 
         opacity: 1
       }
     )
@@ -237,21 +239,15 @@ onMounted(() => {
       class="overlay"
     >
        <div class="main-visual">
-          <NuxtImg 
-            src="/img/main/main.png" 
-            alt="主視覺"
-          />
+        <div class="unicorn_main"></div>
        </div>
 
       <div class="unicorn">
         <div class="unicorn-sprite"></div>
       </div>
+      
+      <div class="wave"></div>
 
-      <NuxtImg 
-        class="wave" 
-        src="/img/main/wave.png" 
-        alt="海浪"
-      />
       <!-- 步驟 3：鳥A從右下往左上移動 -->
       <NuxtImg 
         class="bird-right" 
@@ -300,9 +296,15 @@ section.topContainer{
   }
 
   .wave{
-    bottom: 1vh;
+    position: absolute;
+    height: 150vh;
     width: 150%;
     left: -22.5%;
+    bottom: -8vh;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image:url('@/assets/img/wave.png');	
   }
   .main-visual,
   .unicorn{
@@ -329,12 +331,17 @@ section.topContainer{
         margin-top: 50%;
       }
     }
+    .unicorn_main,
     .unicorn-sprite{
       display:block;	
-      // margin:3em auto;
       width:556.5px; /* 9461/17 */
       height:380px;
-
+    }
+    .unicorn_main{
+      background-size: contain;
+      background-image:url('@/assets/img/main.png');	
+    }
+    .unicorn-sprite{
       background-image:url('@/assets/img/unicorn.webp');	
       animation: walk 1.6s steps(17) infinite;
 
