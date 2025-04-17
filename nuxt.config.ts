@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // app: {
-  //   baseURL: '/chiu-portfolio/'
-  // },
+  app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || '/'
+  },
   ssr: false,
   compatibilityDate: '2025-02-20',
   devtools: { enabled: true },
