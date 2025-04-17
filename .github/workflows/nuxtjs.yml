@@ -15,19 +15,16 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  env_var: ${{ vars.CLOUDINARY_CLOUD_NAME }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CLOUDINARY_CLOUD_NAME: ${{ vars.CLOUDINARY_CLOUD_NAME }}
 
     steps:
-    - name: Use variables
-      run: |
-        echo "repository variable : $CLOUDINARY_CLOUD_NAME"
-      env:
-        CLOUDINARY_CLOUD_NAME: ${{ vars.CLOUDINARY_CLOUD_NAME }}
+      - name: Use variables
+        run: |
+          echo "repository variable : $CLOUDINARY_CLOUD_NAME"
 
       - name: Checkout
         uses: actions/checkout@v4
