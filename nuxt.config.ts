@@ -15,8 +15,16 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
+      cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || ''
     }
+  },
+  image: {
+    cloudinary: {
+      baseURL: ''
+    }
+  },
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME || ''
   },
   i18n: {
     locales: [
@@ -26,11 +34,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix', // 不使用語言前綴
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
-  image: {
-    cloudinary: {
-      baseURL: `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`
-    }
-  },
+
   plugins: ['~/plugins/gsap.client.ts'],
   css: [
     '~/assets/scss/reset.scss',

@@ -5,8 +5,8 @@ import { useNuxtApp } from "nuxt/app"
 const { $gsap, $ScrollTrigger, $Observer } = useNuxtApp()
 const router = useRouter()
 const runtimeConfig = useRuntimeConfig() // 取得環境變數
-console.log(runtimeConfig)
-const cloudName = runtimeConfig.public.cloudinary.cloudName
+const cloudName = runtimeConfig.public.cloudinaryCloudName
+// const cloudName = runtimeConfig.public.cloudinary.cloudName
 let ObserverInstance = null
 
 const scrollWorkContainer = ref<HTMLDivElement | null>(null)
