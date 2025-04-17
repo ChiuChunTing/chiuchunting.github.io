@@ -6,7 +6,7 @@
   <section class="exhibitionsContainer context mb-5">
     <NuxtLink to="/exhibitions">
       <NuxtImg 
-        src="/img/exhibitionImg.JPG" 
+        src="/img/exhibitionImg.jpg" 
         alt="展覽訊息"
       />
     </NuxtLink>

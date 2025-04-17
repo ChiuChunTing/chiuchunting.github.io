@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/cloudinary',
     'nuxt-swiper',
-    'nuxt-swiper',
     '@nuxtjs/i18n'
   ],
   i18n: {

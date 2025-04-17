@@ -28,8 +28,8 @@ useSeoMeta({
 <template>
   <section>
     <NuxtImg 
-        src="/img/exhibitionImg.JPG" 
-        :alt="t('exhibition.seo.title')"
+      src="/img/exhibitionImg.jpg" 
+      :alt="t('exhibition.seo.title')"
     />
     <div class="info">
       <p>{{t('exhibition.title')}}。</p>
