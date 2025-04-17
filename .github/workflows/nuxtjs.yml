@@ -38,9 +38,9 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Static HTML export with Nuxt
-        run: pnpm run generate
         env:
           CLOUDINARY_CLOUD_NAME: ${{ vars.CLOUDINARY_CLOUD_NAME }}
+        run: pnpm run generate
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
