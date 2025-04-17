@@ -1,6 +1,3 @@
-# Sample workflow for building and deploying a Nuxt site to GitHub Pages
-# To get started with Nuxt see: https://nuxtjs.org/docs/get-started/installation
-#
 name: Deploy Nuxt site to Pages
 
 on:
@@ -24,7 +21,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
 
@@ -43,8 +39,8 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      # - name: Install pnpm
+      #   run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
