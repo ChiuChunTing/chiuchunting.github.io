@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   },
   image: {
     cloudinary: {
-      baseURL: ''
+      baseURL: '' // 會自動從 runtimeConfig 中取得
     }
   },
   cloudinary: {
