@@ -13,12 +13,16 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@nuxtjs/i18n'
   ],
+  runtimeConfig: {
+    public: {
+      cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
+    }
+  },
   i18n: {
     locales: [
       { code: 'zh-TW',  name: '中文', file: 'zh-tw.json' },
       { code: 'en',  name: 'En', file: 'en.json' },
     ],
-  //   lazy: true,
     strategy: 'no_prefix', // 不使用語言前綴
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
@@ -28,11 +32,6 @@ export default defineNuxtConfig({
     }
   },
   plugins: ['~/plugins/gsap.client.ts'],
-  // cloudinary: {
-    // defaults: {
-      // transformation: [{ crop: 'fit', width: 800, height: 800 }]
-    // }
-  // },
   css: [
     '~/assets/scss/reset.scss',
     '~/assets/scss/main.scss',
