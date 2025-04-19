@@ -1,11 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    baseURL: '/chiu-portfolio/'
-    // baseURL: '/'
+    baseURL: process.env.NUXT_APP_BASE_URL
   },
   ssr: false,
-  compatibilityDate: '2025-02-20',
+  compatibilityDate: '2025-04-19',
   devtools: { enabled: true },
   modules: [
     '@nuxt/image',
@@ -15,6 +14,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
+      ga4Id: process.env.GA_ID || '',
       cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || ''
     }
   },
@@ -35,7 +35,10 @@ export default defineNuxtConfig({
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
 
-  plugins: ['~/plugins/gsap.client.ts'],
+  plugins: [
+    '~/plugins/gsap.client.ts',
+    '~/plugins/ga.client.ts',
+  ],
   css: [
     '~/assets/scss/reset.scss',
     '~/assets/scss/main.scss',

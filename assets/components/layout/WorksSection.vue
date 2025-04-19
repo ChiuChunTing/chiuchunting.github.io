@@ -4,10 +4,10 @@ import { ref, onMounted } from 'vue'
 import { useNuxtApp } from "nuxt/app"
 const { $gsap, $ScrollTrigger, $Observer } = useNuxtApp()
 const router = useRouter()
-const runtimeConfig = useRuntimeConfig() // 取得環境變數
+
+const runtimeConfig = useRuntimeConfig()
 const cloudName = runtimeConfig.public.cloudinaryCloudName
-// const cloudName = runtimeConfig.public.cloudinary.cloudName
-let ObserverInstance = null
+let ObserverInstance: any = null
 
 const scrollWorkContainer = ref<HTMLDivElement | null>(null)
 const sectionRefs = ref<HTMLDivElement[]>([])
