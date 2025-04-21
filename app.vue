@@ -7,6 +7,9 @@ import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 
 const route = useRoute()
 const { locale } = useI18n()
+const runtimeConfig = useRuntimeConfig()
+const { baseURL } = runtimeConfig.app
+
 const scrollY = ref(0)
 onMounted(() => {
   const onScroll = () => {
@@ -45,10 +48,10 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'icon', type: 'image/png', href: '/favicon-96x96.png' },
-    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-    { rel: 'shortcut icon',  href: '/favicon.ico' },
-    { rel: 'apple-touch-icon',  sizes: '180x180', href: '/apple-touch-icon.png' }
+    { rel: 'icon', type: 'image/png', href: `${baseURL}favicon-96x96.png` },
+    { rel: 'icon', type: 'image/svg+xml', href: `${baseURL}favicon.svg` },
+    { rel: 'shortcut icon', href: `${baseURL}favicon.ico` },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: `${baseURL}apple-touch-icon.png` },
   ]
 })
 

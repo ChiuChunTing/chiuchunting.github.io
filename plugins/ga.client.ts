@@ -1,5 +1,4 @@
 // 初始化 GA4 並綁定 router
-
 import { defineNuxtPlugin } from 'nuxt/app'
 
 declare global {
@@ -12,6 +11,8 @@ declare global {
 export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig()
   const GA_ID = runtimeConfig.public.ga4Id
+console.log(GA_ID);
+
   if (!GA_ID) return
 
   // 1. 注入 GA script
@@ -20,21 +21,20 @@ export default defineNuxtPlugin(() => {
   scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
   scriptTag.onload = () => {
     // 2. 初始化 dataLayer 與 gtag
-    (window as any).dataLayer = (window as any).dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(args)
+    // (window as any).dataLayer = (window as any).dataLayer || [];
+    window.dataLayer = window.dataLayer || []
+    window.gtag = function () {
+      window.dataLayer.push(arguments)
     }
-  
-    window.gtag = gtag
-  
-    gtag('js', new Date())
-    gtag('config', GA_ID, {
+    
+    window.gtag('js', new Date())
+    window.gtag('config', GA_ID, {
       send_page_view: false,
     })
-    gtag('set', 'debug_mode', true)
+    window.gtag('set', 'debug_mode', true)
   
     // 初始 page_view
-    gtag('event', 'page_view', {
+    window.gtag('event', 'page_view', {
       page_path: window.location.pathname,
       page_title: document.title,
       page_location: window.location.href,
@@ -44,7 +44,7 @@ export default defineNuxtPlugin(() => {
     const router = useRouter()
     router.afterEach((to) => {
       console.log(to.fullPath)
-      gtag('event', 'page_view', {
+      window.gtag('event', 'page_view', {
         page_path: to.fullPath,
         page_title: document.title,
         page_location: window.location.href,
