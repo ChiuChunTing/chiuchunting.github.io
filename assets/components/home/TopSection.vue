@@ -249,17 +249,11 @@ onMounted(() => {
       <div class="wave"></div>
 
       <!-- 步驟 3：鳥A從右下往左上移動 -->
-      <NuxtImg 
-        class="bird-right" 
-        src="/img/main/bird_right.png"
-        alt="鳥"
-      />
+      <div class="bird-right"></div>
+
       <!-- 步驟 4：鳥B從左下往右上移動 -->
-      <NuxtImg 
-        class="bird-left" 
-        src="/img/main/bird_left.png"
-        alt="鳥"
-      />
+      <div class="bird-left"></div>
+
     </div>
   </section>
 </template>
@@ -295,17 +289,6 @@ section.topContainer{
     max-width: none;
   }
 
-  .wave{
-    position: absolute;
-    height: 150vh;
-    width: 150%;
-    left: -22.5%;
-    bottom: -8vh;
-
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image:url('@/assets/img/wave.png');	
-  }
   .main-visual,
   .unicorn{
     position: absolute;
@@ -355,6 +338,28 @@ section.topContainer{
       from {background-position:0 0;}
       to {background-position:-9461px 0;}
     }
+  }
+
+  .wave,
+  .bird-right,
+  .bird-left{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .wave{
+    height: 150vh;
+    width: 150%;
+    left: -22.5%;
+    bottom: -8vh;
+    background-image:url('@/assets/img/wave.png');	
+  }
+  .bird-right{
+    background-image:url('@/assets/img/bird_right.png');	
+  }
+  .bird-left{
+    background-image:url('@/assets/img/bird_left.png');	
   }
 }
 

@@ -21,21 +21,24 @@ export default defineNuxtPlugin(() => {
   document.head.appendChild(scriptTag as Node);
 
   // 2. 初始化 dataLayer 與 gtag
-  (window as any).dataLayer = (window as any).dataLayer || []
+  (window as any).dataLayer = (window as any).dataLayer || [];
   function gtag(...args: any[]) {
     window.dataLayer.push(args)
   }
 
-  window.gtag = gtag;
+  window.gtag = gtag
 
   gtag('js', new Date())
   gtag('config', GA_ID, {
     send_page_view: false,
   })
+  gtag('set', 'debug_mode', true)
 
   // 自動追蹤 PageView
+  console.log(0)
   const router = useRouter()
   router.afterEach((to) => {
+    console.log(to.fullPath)
     gtag('event', 'page_view', {
       page_path: to.fullPath,
       page_title: document.title,
