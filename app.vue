@@ -38,10 +38,7 @@ useHead({
 })
 
 useSeoMeta({
-  ogSiteName: '邱君婷 Chiu Chun-Ting',
   title: '邱君婷 | Chiu Chun-Ting',
-  ogTitle: '邱君婷 | Chiu Chun-Ting',
-  ogType: 'article',
   ogImage: `${baseURL}square.png`,
   twitterImage: `${baseURL}square.png`,  
   twitterCard: "summary_large_image",
@@ -64,9 +61,6 @@ watch(lang, (newLang) => {
       { property: 'og:locale', content: newLang },
       { property: 'og:locale:alternate', content: 'zh_TW' },
       { property: 'og:locale:alternate', content: 'en_US' },
-      { property: 'description', content: t('home.seo.description') },
-      { property: 'og:description', content: t('home.seo.description') },
-      { name: 'twitter:description', content: t('home.seo.description') },
     ]
   })
 }, { immediate: true })

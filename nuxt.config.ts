@@ -4,22 +4,17 @@ export default defineNuxtConfig({
     baseURL: process.env.NUXT_APP_BASE_URL,
     head: {
       meta: [
-        {
-          name: 'robots',
-          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
-        }
+        { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'},
+        { property: 'og:type', content: 'article'},
+        { property: 'og:title', content: '邱君婷 Chiu Chun-Ting'},
+        { property: 'og:site_name', content: '邱君婷 Chiu Chun-Ting'},
       ]
     }
   },
   ssr: false,
   compatibilityDate: '2025-04-19',
   devtools: { enabled: true },
-  modules: [
-    '@nuxt/image',
-    '@nuxtjs/cloudinary',
-    'nuxt-swiper',
-    '@nuxtjs/i18n'
-  ],
+  modules: ['@nuxt/image', '@nuxtjs/cloudinary', 'nuxt-swiper', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
   runtimeConfig: {
     public: {
       ga4Id: process.env.GA_ID || '',
@@ -44,7 +39,11 @@ export default defineNuxtConfig({
     strategy: 'no_prefix', // 不使用語言前綴
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
-
+  sitemap: {
+    sources: [
+      '/api/__sitemap__/urls',
+    ]
+  },
   plugins: [
     '~/plugins/gsap.client.ts',
     '~/plugins/ga.client.ts',
