@@ -8,8 +8,6 @@ const artist = ref(null)
 useSeoMeta({
   title: '關於 About｜邱君婷 Chiu Chun-Ting',
   ogTitle: '關於 About｜邱君婷 Chiu Chun-Ting',
-  // ogImage: `${baseURL}adCarousel.jpg`,
-  // twitterImage: `${baseURL}adCarousel.jpg`,
   twitterTitle: '關於 About｜邱君婷 Chiu Chun-Ting',
 })
 

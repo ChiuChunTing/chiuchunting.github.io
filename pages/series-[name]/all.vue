@@ -20,8 +20,6 @@ watch(()=> locale.value, () => {
     ogTitle: title,
     description: description,
     ogDescription: description,
-    // ogImage: `${baseURL}adCarousel.jpg`,
-    // twitterImage: `${baseURL}adCarousel.jpg`,
     twitterTitle: title,
     twitterDescription: description
   })

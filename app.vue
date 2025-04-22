@@ -6,8 +6,7 @@ import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 
 const route = useRoute()
 const { t, locale } = useI18n()
-const runtimeConfig = useRuntimeConfig()
-const { baseURL } = runtimeConfig.app
+const baseURL = 'https://chiuchunting.github.io/chiu-portfolio/'
 
 const scrollY = ref(0)
 onMounted(() => {
@@ -42,6 +41,7 @@ useSeoMeta({
   ogSiteName: '邱君婷 Chiu Chun-Ting',
   title: '邱君婷 | Chiu Chun-Ting',
   ogTitle: '邱君婷 | Chiu Chun-Ting',
+  ogType: 'article',
   ogImage: `${baseURL}square.png`,
   twitterImage: `${baseURL}square.png`,  
   twitterCard: "summary_large_image",

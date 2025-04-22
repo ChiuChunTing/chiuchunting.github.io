@@ -2,9 +2,10 @@
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
-const runtimeConfig = useRuntimeConfig()
-const { baseURL } = runtimeConfig.app
+const baseURL = 'https://chiuchunting.github.io/chiu-portfolio/'
 const { t, locale } = useI18n()
+const title = '靈魂地景 | Landscapes of the Soul'
+const location = '伊日後樂園 | BACK-Y'
 const start = '2025/04/24'
 const end = '2025/05/17'
 watch(()=> locale.value, () => {
@@ -34,8 +35,8 @@ watch(()=> locale.value, () => {
     />
 
     <div class="info">
-      <p>{{t('exhibition.title')}}。</p>
-      <p>{{t('exhibition.location')}}。</p>
+      <p>{{ title }}</p>
+      <p>{{ location }}</p>
       <p>{{start}} - {{ end }}</p>
     </div>
   </section>
@@ -47,10 +48,6 @@ watch(()=> locale.value, () => {
 
   <section class="unicorn">
     <UnicornIndicator/>
-
-  </section>
-  <section class="context mb-5">
-    <b>{{ $t('exhibition.content5') }}</b>
   </section>
 
   <WebFooter />
