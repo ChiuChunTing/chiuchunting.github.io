@@ -44,11 +44,6 @@ section{
   box-sizing: border-box;
 }
 
-h6{
-  font-size: 1.25rem;
-  color: var(--textGrey);
-}
-
 p, b{
   margin: 0 0 1.5rem 0;
   font-size: 0.9rem;
@@ -69,10 +64,19 @@ b{
 
 a,
 button,
-h1{
+h1,
+h2{
   font-family: "Apercu Mono Pro", "Lucida Typewriter", monospace;
   color: var(--textGrey2);
   font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+h3{
+  font-family: "Apercu Mono Pro", "Lucida Typewriter", monospace;
+  color: var(--textGrey);
+  font-size: 1.25rem;
   font-weight: normal;
 }
 

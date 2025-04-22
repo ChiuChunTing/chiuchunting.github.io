@@ -3,6 +3,7 @@ import { worksList } from '@/assets/data/worksList'
 import { useRoute, useRouter } from 'vue-router'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
+const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const seriesName = route.params.name
@@ -10,6 +11,22 @@ const targetSeries = worksList.find(item => item.series === seriesName)
 if (!targetSeries) {
   router.push('/404')
 }
+
+watch(()=> locale.value, () => {
+  const title = `${seriesName} | Chiu Chun-Ting 邱君婷`
+  const description = t('works.seo.seriesDescription', { year: seriesName })
+  useSeoMeta({
+    title: title,
+    ogTitle: title,
+    description: description,
+    ogDescription: description,
+    // ogImage: `${baseURL}adCarousel.jpg`,
+    // twitterImage: `${baseURL}adCarousel.jpg`,
+    twitterTitle: title,
+    twitterDescription: description
+  })
+}, { immediate: true })
+
 </script>
 
 <template>

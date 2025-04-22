@@ -3,7 +3,7 @@ import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { worksList } from '@/assets/data/worksList'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
-
+const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
@@ -50,6 +50,17 @@ watchEffect(() => {
     prevWork.value = imgInfoIndex >= 1 ? works[imgInfoIndex - 1]: null
     nextWork.value = imgInfoIndex < worksCount - 1 ? works[imgInfoIndex + 1] : null
   }
+
+  const langKey = t('key') || 'nameTw'
+  const name = targetWork.value && langKey in targetWork.value 
+    ? targetWork.value[langKey as keyof Work] 
+    : ''
+  const title = `${name} | Chiu Chun-Ting 邱君婷`
+  useSeoMeta({
+    title: title,
+    ogTitle: title,
+    twitterTitle: title,
+  })
 })
 
 </script>

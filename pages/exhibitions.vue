@@ -2,25 +2,23 @@
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
-const { t } = useI18n()
+const runtimeConfig = useRuntimeConfig()
+const { baseURL } = runtimeConfig.app
+const { t, locale } = useI18n()
 const start = '2025/04/24'
 const end = '2025/05/17'
-
-useSeoMeta({
-  title: t('exhibition.seo.title'),
-  ogTitle: t('exhibition.seo.title'),
-  description: t('exhibition.seo.description', { start, end }),
-  ogDescription: t('exhibition.seo.description', { start, end }),
-  ogImage: 'https://res.cloudinary.com/dxddw5huw/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1744778738/exhibition_2025.jpg',
-  ogImageSecureUrl: 'https://res.cloudinary.com/dxddw5huw/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1744778738/exhibition_2025.jpg',
-  ogUrl: 'https://chiuchunting.github.io/chiu-portfolio/exhibitions',
-  twitterImage: 'https://res.cloudinary.com/dxddw5huw/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1744778738/exhibition_2025.jpg',
-  twitterCard: 'summary_large_image',
-  twitterTitle: t('exhibition.seo.twitterTitle'),
-  twitterDescription: t('exhibition.seo.twitterDescription', { end }),
-  ogImageWidth: 1000,
-  ogImageHeight: 563,
-})
+watch(()=> locale.value, () => {
+  useSeoMeta({
+    title: t('exhibition.seo.title'),
+    ogTitle: t('exhibition.seo.title'),
+    description: t('exhibition.seo.description', { start, end }),
+    ogDescription: t('exhibition.seo.description', { start, end }),
+    ogImage: `${baseURL}adCarousel.jpg`,
+    twitterImage: `${baseURL}adCarousel.jpg`,
+    twitterTitle: t('exhibition.seo.title'),
+    twitterDescription: t('exhibition.seo.description', { start, end }),
+  })
+}, { immediate: true })
 
 </script>
 
@@ -30,7 +28,7 @@ useSeoMeta({
       src="exhibition_2025" 
       placeholder="blur"
       loading="lazy"
-      :alt="t('exhibition.seo.title') || '最新展覽'"
+      :alt="t('exhibition.seo.title')"
       width="762"
       height="953"
     />
@@ -45,8 +43,6 @@ useSeoMeta({
   <section class="context mt-5">
     <p>{{ $t('exhibition.content1') }}</p>
     <p>{{ $t('exhibition.content2') }}</p>
-    <p>{{ $t('exhibition.content3') }}</p>
-    <p>{{ $t('exhibition.content4') }}</p>
   </section>
 
   <section class="unicorn">

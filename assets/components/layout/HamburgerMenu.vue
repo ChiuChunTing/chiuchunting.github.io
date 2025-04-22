@@ -97,6 +97,7 @@
       flex-direction: row-reverse;
     }
     &-i18n{
+      padding: 0;
       display: none;
       /* 平板模式 */
       @media (max-width: 768px) {

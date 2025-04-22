@@ -1,12 +1,11 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-
 import { useRoute } from 'vue-router'
 import CustomLoadingIndicator from '~/assets/components/layout/Loading.vue'
 import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 
 const route = useRoute()
-const { locale } = useI18n()
+const { t, locale } = useI18n()
 const runtimeConfig = useRuntimeConfig()
 const { baseURL } = runtimeConfig.app
 
@@ -28,40 +27,50 @@ onMounted(() => {
 //   unsubPageFinish()
 // })
 
+const url = useRequestURL()
+useHead({
+    link: [
+      { rel: 'icon', type: 'image/png', href: `${baseURL}favicon-96x96.png` },
+      { rel: 'icon', type: 'image/svg+xml', href: `${baseURL}favicon.svg` },
+      { rel: 'shortcut icon', href: `${baseURL}favicon.ico` },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: `${baseURL}apple-touch-icon.png` },
+      { rel: 'canonical', href: url.href},
+    ]
+})
+
 useSeoMeta({
+  ogSiteName: '邱君婷 Chiu Chun-Ting',
   title: '邱君婷 | Chiu Chun-Ting',
   ogTitle: '邱君婷 | Chiu Chun-Ting',
-  description:
-    '邱君婷的個人作品與展覽資訊網站，展示藝術創作與最新動態。',
-  ogDescription:
-    '邱君婷的個人作品與展覽資訊網站，展示藝術創作與最新動態。',
-  ogImage: "https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg",
-  ogImageSecureUrl: 'https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg',
-  ogUrl: 'https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg',
-  twitterImage: "https://res.cloudinary.com/dkr1hluva/image/upload/v1713023084/og/og-hato_roec1l.jpg",
+  ogImage: `${baseURL}square.png`,
+  twitterImage: `${baseURL}square.png`,  
   twitterCard: "summary_large_image",
   twitterTitle: '邱君婷 | Chiu Chun-Ting',
-  twitterDescription: '邱君婷的個人作品與展覽資訊網站，展示藝術創作與最新動態。',
-  ogImageWidth: 1280,
-  ogImageHeight: 720,
+  ogImageWidth: 1040,
+  ogImageHeight: 1040,
+  ogUrl: url.href
 })
 
-useHead({
-  link: [
-    { rel: 'icon', type: 'image/png', href: `${baseURL}favicon-96x96.png` },
-    { rel: 'icon', type: 'image/svg+xml', href: `${baseURL}favicon.svg` },
-    { rel: 'shortcut icon', href: `${baseURL}favicon.ico` },
-    { rel: 'apple-touch-icon', sizes: '180x180', href: `${baseURL}apple-touch-icon.png` },
-  ]
-})
-
-watchEffect(() => {
+const localeMap = {
+  'zh-TW': 'zh_TW',
+  'zh-CN': 'zh_CN',
+  'en': 'en_US'
+}
+const lang = computed(() => localeMap[locale.value] || 'zh_TW')
+watch(lang, (newLang) => {
   useHead({
-    htmlAttrs: {
-      lang: locale.value, // 當 locale 變化時，更新 lang 屬性
-    }
+    htmlAttrs: {lang: newLang },
+    meta: [
+      { property: 'og:locale', content: newLang },
+      { property: 'og:locale:alternate', content: 'zh_TW' },
+      { property: 'og:locale:alternate', content: 'en_US' },
+      { property: 'description', content: t('home.seo.description') },
+      { property: 'og:description', content: t('home.seo.description') },
+      { name: 'twitter:description', content: t('home.seo.description') },
+    ]
   })
-})
+}, { immediate: true })
+
 </script>
 
 <template>
@@ -73,8 +82,8 @@ watchEffect(() => {
       color="repeating-linear-gradient(to right, rgb(174, 214, 223) 0%, rgb(42, 132, 194) 100%)"
     /> 
     <header class="mainHeader" :class="`block${scrollY}`">
-      <NuxtLink to="/" class="homeLink">
-        邱君婷|Chiu Chun-Ting{{ scrollY }}
+      <NuxtLink to="/" class="homeLink" rel="home" title="邱君婷 Chiu Chun-Ting">
+        邱君婷|Chiu Chun-Ting
       </NuxtLink>
       <HamburgerMenu />
     </header>

@@ -11,7 +11,6 @@ declare global {
 export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig()
   const GA_ID = runtimeConfig.public.ga4Id
-console.log(GA_ID);
 
   if (!GA_ID) return
 
@@ -21,7 +20,6 @@ console.log(GA_ID);
   scriptTag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
   scriptTag.onload = () => {
     // 2. 初始化 dataLayer 與 gtag
-    // (window as any).dataLayer = (window as any).dataLayer || [];
     window.dataLayer = window.dataLayer || []
     window.gtag = function () {
       window.dataLayer.push(arguments)
@@ -31,7 +29,7 @@ console.log(GA_ID);
     window.gtag('config', GA_ID, {
       send_page_view: false,
     })
-    window.gtag('set', 'debug_mode', true)
+    // window.gtag('set', 'debug_mode', true)
   
     // 初始 page_view
     window.gtag('event', 'page_view', {
@@ -43,11 +41,10 @@ console.log(GA_ID);
     // 監聽路由變化
     const router = useRouter()
     router.afterEach((to) => {
-      console.log(to.fullPath)
       window.gtag('event', 'page_view', {
         page_path: to.fullPath,
         page_title: document.title,
-        page_location: window.location.href,
+        page_location: window.location.href
       })
     })
   }

@@ -1,7 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL
+    baseURL: process.env.NUXT_APP_BASE_URL,
+    head: {
+      meta: [
+        {
+          name: 'robots',
+          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+        }
+      ]
+    }
   },
   ssr: false,
   compatibilityDate: '2025-04-19',
@@ -24,7 +32,9 @@ export default defineNuxtConfig({
     }
   },
   cloudinary: {
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME || ''
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
+    useComponent: true,
+    secure: true
   },
   i18n: {
     locales: [

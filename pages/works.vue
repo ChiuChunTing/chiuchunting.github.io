@@ -3,6 +3,26 @@ import { Pagination } from 'swiper/modules'
 import { worksList } from '@/assets/data/worksList'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
+const { t } = useI18n()
+useSeoMeta({
+  title: t('works.seo.title'),
+  ogTitle: t('works.seo.title'),
+  description: t('works.seo.description'),
+  ogDescription: t('works.seo.description'),
+  twitterTitle: t('works.seo.title'),
+  twitterDescription: t('works.seo.description')
+})
+
+// const placeholderPath = (publicId) => {
+//   return $cloudinary.image.url(
+//     `${publicId}.svg`, 
+//     {
+//       effect: "cartoonify:colors:2:detail:0.1",
+//       width: 150,
+//       crop:'scale'
+//     }
+//   )
+// }
 </script>
 
 <template>
@@ -55,6 +75,7 @@ import WebFooter from '@/assets/components/layout/WebFooter.vue'
                   }
                 }"
               >
+              <!-- :smallSrc='placeholderPath(work.img)'  -->
                 <CldImage
                   v-if="work.img"
                   :src="work.img"

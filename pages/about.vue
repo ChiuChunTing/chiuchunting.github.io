@@ -4,8 +4,15 @@ import { useNuxtApp } from "nuxt/app"
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
 const { $gsap } = useNuxtApp()
-const { locale } = useI18n()
 const artist = ref(null)
+useSeoMeta({
+  title: '關於 About｜邱君婷 Chiu Chun-Ting',
+  ogTitle: '關於 About｜邱君婷 Chiu Chun-Ting',
+  // ogImage: `${baseURL}adCarousel.jpg`,
+  // twitterImage: `${baseURL}adCarousel.jpg`,
+  twitterTitle: '關於 About｜邱君婷 Chiu Chun-Ting',
+})
+
 onMounted(() => {
   $gsap.to(artist.value, {
     duration: 2,
@@ -108,6 +115,9 @@ const publicCollection = ref([
 <style lang="scss" scoped>
 main{
   margin-bottom: 3rem;
+  h2{
+    margin-bottom: 0.5rem;
+  }
 }
 header{
   position: relative;
