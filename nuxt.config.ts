@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL,
@@ -8,6 +9,8 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'article'},
         { property: 'og:title', content: '邱君婷 Chiu Chun-Ting'},
         { property: 'og:site_name', content: '邱君婷 Chiu Chun-Ting'},
+        { property: 'og:image', content: `${process.env.NUXT_APP_BASE_URL}square.png`},
+        { property: 'og:url', content: process.env.NUXT_APP_BASE_URL},
       ]
     }
   },

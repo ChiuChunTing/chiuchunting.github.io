@@ -39,12 +39,9 @@ useHead({
 
 useSeoMeta({
   title: '邱君婷 | Chiu Chun-Ting',
-  ogImage: `${baseURL}square.png`,
   twitterImage: `${baseURL}square.png`,  
   twitterCard: "summary_large_image",
   twitterTitle: '邱君婷 | Chiu Chun-Ting',
-  ogImageWidth: 1040,
-  ogImageHeight: 1040,
   ogUrl: url.href
 })
 
