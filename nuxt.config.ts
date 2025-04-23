@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { seriesList } from '@/assets/data/seriesList'
+const siteURL = 'https://chiuchunting.github.io/chiu-portfolio/'
 
 export default defineNuxtConfig({
   app: {
@@ -9,15 +11,21 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'article'},
         { property: 'og:title', content: '邱君婷 Chiu Chun-Ting'},
         { property: 'og:site_name', content: '邱君婷 Chiu Chun-Ting'},
-        { property: 'og:image', content: `${process.env.NUXT_APP_BASE_URL}square.png`},
-        { property: 'og:url', content: process.env.NUXT_APP_BASE_URL},
+        { property: 'og:image', content: `${siteURL}square.png` },
+        { property: 'og:url', content: siteURL},
       ]
     }
   },
   ssr: false,
-  compatibilityDate: '2025-04-19',
+  modules: [
+    '@nuxt/image',
+    '@nuxtjs/cloudinary',
+    'nuxt-swiper',
+    '@nuxtjs/i18n',
+    '@nuxtjs/sitemap'
+  ],
+  compatibilityDate: '2025-04-23',
   devtools: { enabled: true },
-  modules: ['@nuxt/image', '@nuxtjs/cloudinary', 'nuxt-swiper', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
   runtimeConfig: {
     public: {
       ga4Id: process.env.GA_ID || '',
@@ -43,9 +51,15 @@ export default defineNuxtConfig({
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
   sitemap: {
-    sources: [
-      '/api/__sitemap__/urls',
-    ]
+    siteUrl: siteURL,
+    sitemapName: 'sitemap.xml',
+    autoLastmod: true,
+    // sources: [
+    //   '/api/__sitemap__/urls',
+    // ],
+    async routes() {
+      return seriesList.map((item) => `/series-${item.series}/all`)
+    }
   },
   plugins: [
     '~/plugins/gsap.client.ts',
