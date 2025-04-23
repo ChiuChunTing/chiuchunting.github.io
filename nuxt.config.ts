@@ -1,5 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { seriesList } from './assets/data/seriesList'
 const siteURL = 'https://chiuchunting.github.io/chiu-portfolio/'
 
 export default defineNuxtConfig({
@@ -21,8 +20,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/cloudinary',
     'nuxt-swiper',
-    '@nuxtjs/i18n',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/i18n'
   ],
   compatibilityDate: '2025-04-23',
   devtools: { enabled: true },
@@ -49,17 +47,6 @@ export default defineNuxtConfig({
     ],
     strategy: 'no_prefix', // 不使用語言前綴
     defaultLocale: 'zh-TW', // 設定默認語言為中文
-  },
-  sitemap: {
-    siteUrl: siteURL,
-    sitemapName: 'sitemap.xml',
-    autoLastmod: true,
-    // sources: [
-    //   '/api/__sitemap__/urls',
-    // ],
-    async routes() {
-      return seriesList.map((item) => `/series-${item.series}/all`)
-    }
   },
   plugins: [
     '~/plugins/gsap.client.ts',
