@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { seriesList } from '@/assets/data/seriesList'
+import { seriesList } from './assets/data/seriesList'
 const siteURL = 'https://chiuchunting.github.io/chiu-portfolio/'
 
 export default defineNuxtConfig({
