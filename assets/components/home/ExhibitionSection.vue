@@ -4,8 +4,8 @@ const altName = t('exhibition.seo.title')
 </script>
 
 <template>
-  <section class="exhibitionsContainer context mb-5">
-    <NuxtLink to="/exhibitions" class="w-full">
+  <section class="exhibitionsContainer mb-5">
+    <NuxtLink to="/exhibitions" class="w-full context">
       <CldImage 
         src="exhibition_2025" 
         placeholder="blur"
@@ -15,14 +15,13 @@ const altName = t('exhibition.seo.title')
         :alt="altName"
       />
     </NuxtLink>
-
-    <div class="context">
+    <div class="context mt-5">
       <h2>靈魂地景 landscapes of the soul</h2>
       <p>{{ $t('exhibition.content1') }}</p>
       <p>{{ $t('exhibition.content2') }}</p>
+      <NuxtLink to="/exhibitions" class="border-link ml-auto mt-1">+ Details</NuxtLink>
     </div>
 
-    <NuxtLink to="/exhibitions" class="w-6 border-link ml-auto mt-1">+ Details</NuxtLink>
   </section>
 </template>
 
@@ -32,10 +31,6 @@ const altName = t('exhibition.seo.title')
   background-color: var(--white);
   gap: 1rem;
   padding: 0 1.5rem;
-
-  .context{
-    margin: 2rem auto;
-  }
   img{
     width: 100%;
     max-width: 1024px;

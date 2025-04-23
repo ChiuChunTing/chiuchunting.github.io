@@ -3,7 +3,7 @@
   import Socials from '~/assets/components/layout/Socials.vue'
   const router = useRouter()
   const { locale, locales, setLocale } = useI18n()
-
+  
   const menuOpen = ref(false)
   // const windowWidth = ref(0)
   const updatemenuOpen = () => {
@@ -16,8 +16,6 @@
       updatemenuOpen()
     }
   })
-
-
 </script>
 
 <template>

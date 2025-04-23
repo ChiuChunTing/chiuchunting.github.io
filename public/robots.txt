@@ -1,7 +1,6 @@
-# robots.txt for chiuchunting.github.io/chiu-portfolio
+# robots.txt for chiuchunting.github.io
 
 User-agent: *
-Disallow: /private/
-Allow: /
+Disallow:
 
 Sitemap: https://chiuchunting.github.io/sitemap.xml

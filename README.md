@@ -1,53 +1,45 @@
-# 邱君婷 | Chiu Chun-Ting
+# 🎨 邱君婷 Chiu Chun-Ting – 藝術家個人網站 / Personal Portfolio Website
 
-[🚀 訪問網站 | Visit Website](https://israynotarray.com/)
+![Website Preview](https://chiuchunting.github.io/square.png)
 
-📜 這是邱君婷的個人作品與展覽資訊網站，展示藝術創作與最新動態。
+這是藝術家 **邱君婷** 的官方網站，呈現其藝術創作、展覽紀錄與最新動態。  
+This is the official website of artist **Chiu Chun-Ting**, showcasing her artworks, exhibition history, and creative updates.
 
-Chiu Chun-Ting's personal portfolio website, showcasing artistic creations and the latest exhibition updates.
+🖼️ 探索她獨特的藝術視角，了解更多創作脈絡與理念。  
+🖼️ Discover her unique artistic perspective and explore her creative journey.
+
+---
+
+## 🔗 網站連結 | Website
+
+👉 [https://chiuchunting.github.io](https://chiuchunting.github.io)
+
+---
+
+## 🌐 社群連結 | Social Media
 
 
+- 🎨 [Instagram](https://www.instagram.com/chiu_j_t/)
+- 📸 [Facebook](https://www.facebook.com/profile.php?id=1143919654)
 
-## Setup
 
-安裝
+---
+
+## 📄 SEO 與站點資訊
+
+- `robots.txt`：[https://chiuchunting.github.io/robots.txt](https://chiuchunting.github.io/robots.txt)  
+- `sitemap.xml`：[https://chiuchunting.github.io/sitemap.xml](https://chiuchunting.github.io/sitemap.xml)  
+- 預設語言：繁體中文（`zh-TW`），支援中英文內容。
+
+---
+
+## 🚀 技術與部署 | Tech & Deployment
+
+本網站使用 [Nuxt 3](https://nuxt.com) 建立並部署至 GitHub Pages。  
+Built with [Nuxt 3](https://nuxt.com) and deployed via GitHub Pages.
 
 ```bash
-pnpm i
-```
+# Build static site
+npm run generate
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-pnpm dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# pnpm
-pnpm build
-```
-
-Locally preview production build:
-
-```bash
-# pnpm
-pnpm preview
-```
-
-## 目錄結構
-
-/pages: 用來定義路由，Nuxt 會根據檔案名稱自動產生路由。
-/components: 用來放置可重複使用的元件。
-/layouts: 定義網站的頁面結構 (如 header、footer 等)。
-/assets: 儲存靜態資源，如圖片或 SCSS。
-/static: 不會經過 webpack 處理的靜態檔案。
-/i18n: 多國語言。
-
-1. [@nuxt/image](https://image.nuxt.com/get-started/installation)
-2. [@nuxt/i18n](https://i18n.nuxtjs.org/)
+# Deploy (e.g. via GitHub Actions or manual push to gh-pages branch)

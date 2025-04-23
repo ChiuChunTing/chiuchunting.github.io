@@ -5,9 +5,7 @@ import CustomLoadingIndicator from '~/assets/components/layout/Loading.vue'
 import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 
 const route = useRoute()
-const { t, locale } = useI18n()
-const baseURL = 'https://chiuchunting.github.io/'
-
+const { locale } = useI18n()
 const scrollY = ref(0)
 onMounted(() => {
   const onScroll = () => {
@@ -18,46 +16,14 @@ onMounted(() => {
     window.removeEventListener('scroll', onScroll)
   })
 })
-// const nuxtApp = useNuxtApp()
-// const unsubPageStart = nuxtApp.hook('page:start', show)
-// const unsubPageFinish = nuxtApp.hook('page:finish', hide)
-// onBeforeUnmount(() => {
-//   unsubPageStart()
-//   unsubPageFinish()
-// })
-
-const url = useRequestURL()
-useHead({
-    link: [
-      { rel: 'icon', type: 'image/png', href: `${baseURL}favicon-96x96.png` },
-      { rel: 'icon', type: 'image/svg+xml', href: `${baseURL}favicon.svg` },
-      { rel: 'shortcut icon', href: `${baseURL}favicon.ico` },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: `${baseURL}apple-touch-icon.png` },
-      { rel: 'canonical', href: url.href},
-    ]
-})
-
-useSeoMeta({
-  title: '邱君婷 | Chiu Chun-Ting',
-  twitterImage: `${baseURL}square.png`,  
-  twitterCard: "summary_large_image",
-  twitterTitle: '邱君婷 | Chiu Chun-Ting',
-  ogUrl: url.href
-})
-
-const localeMap = {
-  'zh-TW': 'zh_TW',
-  'zh-CN': 'zh_CN',
-  'en': 'en_US'
-}
-const lang = computed(() => localeMap[locale.value] || 'zh_TW')
-watch(lang, (newLang) => {
+watch(()=> locale.value, () => {
+  const lang = locale.value === 'zh-TW'? locale.value : 'en-US'
+  const alternate = locale.value === 'zh-TW'? 'en-US': locale.value
   useHead({
-    htmlAttrs: {lang: newLang },
+    htmlAttrs: {lang: lang },
     meta: [
-      { property: 'og:locale', content: newLang },
-      { property: 'og:locale:alternate', content: 'zh_TW' },
-      { property: 'og:locale:alternate', content: 'en_US' },
+      { property: 'og:locale', content: lang },
+      { property: 'og:locale:alternate', content: alternate },
     ]
   })
 }, { immediate: true })
