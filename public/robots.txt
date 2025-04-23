@@ -1,1 +1,6 @@
+# robots.txt for chiuchunting.github.io/chiu-portfolio
 
+User-agent: *
+Allow: /
+
+Sitemap: https://chiuchunting.github.io/chiu-portfolio/sitemap.xml
