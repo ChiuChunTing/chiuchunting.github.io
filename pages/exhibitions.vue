@@ -2,7 +2,7 @@
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
-const baseURL = 'https://chiuchunting.github.io/chiu-portfolio/'
+const baseURL = 'https://chiuchunting.github.io/'
 const { t, locale } = useI18n()
 const title = '靈魂地景 | Landscapes of the Soul'
 const location = '伊日後樂園 | BACK-Y'

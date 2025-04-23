@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const siteURL = 'https://chiuchunting.github.io/chiu-portfolio/'
+const siteURL = 'https://chiuchunting.github.io/'
 
 export default defineNuxtConfig({
   app: {

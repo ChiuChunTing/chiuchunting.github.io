@@ -6,7 +6,7 @@ import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 
 const route = useRoute()
 const { t, locale } = useI18n()
-const baseURL = 'https://chiuchunting.github.io/chiu-portfolio/'
+const baseURL = 'https://chiuchunting.github.io/'
 
 const scrollY = ref(0)
 onMounted(() => {
