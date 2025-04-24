@@ -19,6 +19,7 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'},
+        { name: 'google-site-verification', content: 'qpCWZmWAdp9f7j7RYEUQjWn2YgGl2yqRcZ6dj5JEL8A'},
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'keywords', content: keyword},
         { property: 'og:type', content: 'website'},
