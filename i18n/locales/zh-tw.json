@@ -14,11 +14,7 @@
   "language": "語言",
 
   "home": {
-    "name": "首頁",
-    "seo": {
-      "title": "邱君婷 Chiu Chun-Ting",
-      "description": "邱君婷的個人作品與最新展覽資訊。"
-    }
+    "name": "首頁"
   },
 
   "intro": {
