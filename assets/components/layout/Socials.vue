@@ -3,7 +3,7 @@
     { 
       index: 'email',
       alt: 'EMAIL',
-      link: 'mailto:cs@web4theme.com',
+      link: 'mailto:betty3601055@hotmail.com',
       target: '',
       rel: ''
     },

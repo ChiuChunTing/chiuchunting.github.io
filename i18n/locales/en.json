@@ -30,18 +30,13 @@
   },
 
   "exhibition": {
+    "title": "Landscapes of the soul",
     "content1": "This exhibition centers on an ongoing inquiry into the nature of life and existence. Through her multi-media practice, Chiu expands narrative structures while exploring the interconnectedness of humanity and the natural world, as well as the cyclical rhythm of life.",
-    "content2": "In terms of form, the works are constructed through the layering and interweaving of imagery, deliberately obscuring boundaries to generate an open-ended symbolic language and a fluid narrative structure. Existing stories are extended and reinterpreted, giving rise to new meanings. Each piece becomes a theatrical space, inviting viewers into a contemplative journey that traverses the realms of dream and reality, time and space, narrative and symbol.",
-    "seo": {
-      "title": "Exhibition | Chiu Chun-Ting 邱君婷",
-      "description": "Discover Chiu Chun-Ting's latest exhibition 'Landscapes of the Soul' at BACK-Y, from {start} to {end}."
-    }
+    "content2": "In terms of form, the works are constructed through the layering and interweaving of imagery, deliberately obscuring boundaries to generate an open-ended symbolic language and a fluid narrative structure. Existing stories are extended and reinterpreted, giving rise to new meanings. Each piece becomes a theatrical space, inviting viewers into a contemplative journey that traverses the realms of dream and reality, time and space, narrative and symbol."
   },
 
   "works": {
     "seo": {
-      "title": "Works | Chiu Chun-Ting 邱君婷",
-      "description": "Discover the archive of Chiu Chun-Ting’s artistic creations throughout the years.",
       "seriesDescription": "瀏覽邱君婷{year}年間藝術創作作品。"
     }
   }

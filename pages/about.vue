@@ -5,10 +5,31 @@ import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
 const { $gsap } = useNuxtApp()
 const artist = ref(null)
+
+const title = 'About | 邱君婷 Chiu Chun-Ting | Biography & Artistic Statement'
+const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_post1200X630/v1744906920/unicorn_main.png'
+
 useSeoMeta({
-  title: '關於 About｜邱君婷 Chiu Chun-Ting',
-  ogTitle: '關於 About｜邱君婷 Chiu Chun-Ting',
-  twitterTitle: '關於 About｜邱君婷 Chiu Chun-Ting',
+  title,
+  ogTitle: title,
+  twitterTitle: title,
+
+  description: '邱君婷 Chiu Chun-Ting 的個人簡介頁，介紹她的藝術歷程、教育背景與創作理念，並包含展覽紀錄與聯絡資訊。',
+  ogDescription: 'An in-depth look into the life and artistic vision of Chiu Chun-Ting, featuring her biography, artistic influences, and conceptual direction.',
+  twitterDescription: 'Explore the biography and artistic philosophy of Chiu Chun-Ting, including her education, exhibitions, and symbolic visual language.',
+
+  keywords: '邱君婷, Chiu Chun-Ting, 當代藝術家, 畫家, 藝術家簡介, 藝術聲明, biography, artistic statement, Taiwanese artist, visual artist',
+
+  ogType: 'profile',
+  ogUrl: 'https://chiuchunting.github.io/about',
+  ogImage: siteImage,
+  twitterImage: siteImage,
+
+  // Open Graph Profile-specific
+  'profile:first_name': 'Chun-Ting',
+  'profile:last_name': 'Chiu',
+  'profile:username': 'chiu_j_t',
+  'profile:gender': 'female'
 })
 
 onMounted(() => {

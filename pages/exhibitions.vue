@@ -2,24 +2,70 @@
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
-const baseURL = 'https://chiuchunting.github.io/'
-const { t, locale } = useI18n()
+const artist = '邱君婷 Chiu Chun-Ting'
 const title = '靈魂地景 | Landscapes of the Soul'
 const location = '伊日後樂園 | BACK-Y'
 const start = '2025/04/24'
 const end = '2025/05/17'
-watch(()=> locale.value, () => {
-  useSeoMeta({
-    title: t('exhibition.seo.title'),
-    ogTitle: t('exhibition.seo.title'),
-    description: t('exhibition.seo.description', { start, end }),
-    ogDescription: t('exhibition.seo.description', { start, end }),
-    ogImage: `${baseURL}adCarousel.jpg`,
-    twitterImage: `${baseURL}adCarousel.jpg`,
-    twitterTitle: t('exhibition.seo.title'),
-    twitterDescription: t('exhibition.seo.description', { start, end }),
-  })
-}, { immediate: true })
+const siteImage1 = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1744778738/exhibition_2025.jpg'
+const siteImage2 = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1745503404/exhibition_2025_2.jpg'
+const siteURL = 'https://chiuchunting.github.io/exhibitions'
+const description = `邱君婷的最新展覽《${title}》於 ${location} 展出，展期自 ${start} 至 ${end}，呈現她以夢境與感知為語彙的創作軌跡。`
+
+const imageAlt = `${title}_${location}_${start}-${end}_${artist}`
+useSeoMeta({
+  title: `${title}｜展覽資訊 Exhibitions｜${artist}`,
+  description: description,
+  keywords: 'Chiu Chun-Ting, 邱君婷, 靈魂地景, 當代藝術展覽, 台北展覽, BACK-Y, 伊日後樂園, Taiwanese artist, solo exhibition, contemporary art',
+
+  ogTitle: `${title}｜Chiu Chun-Ting Solo Exhibition`,
+  ogDescription: `Discover Chiu Chun-Ting's latest solo exhibition '${title}' at ${location}, on view from ${start} to ${end}. A visual journey into dreams, memory, and symbolic landscapes.`,
+  ogImage: siteImage1,
+  ogUrl: siteURL,
+  ogType: 'article',
+
+  twitterTitle: `${title} | Chiu Chun-Ting Exhibition`,
+  twitterDescription: `Explore 'Landscapes of the Soul', a solo show by Chiu Chun-Ting at BACK-Y, Taipei, from ${start} to ${end}.`,
+  twitterImage: siteImage2
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": title,
+        "startDate": "2025-04-24",
+        "endDate": "2025-05-17",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": location,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Taipei",
+            "addressCountry": "TW"
+          }
+        },
+        "image": [siteImage1, siteImage2],
+        "description": description,
+        "performer": {
+          "@type": "Person",
+          "name": artist
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": location,
+          "url": "https://www.instagram.com/back_yiri/"
+        },
+        "url": siteURL
+      })
+    }
+  ]
+})
 
 </script>
 
@@ -29,7 +75,7 @@ watch(()=> locale.value, () => {
       src="exhibition_2025" 
       placeholder="blur"
       loading="lazy"
-      :alt="t('exhibition.seo.title')"
+      :alt="imageAlt"
       width="762"
       height="953"
     />

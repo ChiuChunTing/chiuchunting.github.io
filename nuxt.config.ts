@@ -1,8 +1,9 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 const siteURL = 'https://chiuchunting.github.io/'
-const siteImage = `${siteURL}square.png`
+const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_post1200X630smart/v1744778738/exhibition_2025.jpg'
 const title = '邱君婷 Chiu Chun-Ting'
-const description = '邱君婷的個人作品與展覽資訊網站，展示藝術創作與最新動態。Personal website of Chiu Chun-Ting, featuring artworks and exhibition updates.' 
+const descriptionTw = '邱君婷是一位當代表現藝術家，以繪畫探索夢境、記憶與感知之間的詩性空間。她的作品充滿象徵符碼，如孩童、狼、甲蟲與星星，交織出靜謐而深刻的視覺敘事。從柔和色彩到細膩結構，她以圖像引領觀者進入一場靜默而親密的凝視旅程。網站呈現其歷年創作與最新展覽動態，宛如一座夢與現實交織的圖書館。'
+const descriptionEn = 'Chiu Chun Ting is a contemporary visual artist whose paintings explore poetic realms between dreams, memory, and perception. Her works feature recurring symbols—children, wolves, beetles, stars—that evoke quiet yet powerful narratives. With gentle palettes and layered composition, she transforms viewing into an intimate, reflective experience. This site showcases her past works and latest exhibitions, inviting you into a dreamlike library of visual storytelling.'
+const keyword = '邱君婷, Chiu Chun-Ting, contemporary artist, visual art, symbolic painting, Taiwanese artist, art portfolio, mixed media, dreamlike art'
 
 export default defineNuxtConfig({
   app: {
@@ -19,17 +20,19 @@ export default defineNuxtConfig({
       meta: [
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'},
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: description},
-        { property: 'og:type', content: 'article'},
-        { property: 'og:title', content: title},
-        { property: 'og:description', content: description },
-        { property: 'og:site_name', content: title},
-        { property: 'og:image', content: siteImage },
-        { property: 'og:url', content: siteURL},
+        { name: 'keywords', content: keyword},
+        { property: 'og:type', content: 'website'},
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: title },
-        { name: 'twitter:description', content: description },
+        { property: 'og:url', content: siteURL},
+        { property: 'og:site_name', content: title},
+        { property: 'og:title', content: title},
+        { name: 'twitter:title', content: `${title} | Art Portfolio` },
+
+        { name: 'description', content: descriptionTw},
+        { property: 'og:description', content: `${descriptionTw} ${descriptionEn}` },
+        { name: 'twitter:description', content: descriptionEn },
         { name: 'twitter:image', content: siteImage },
+        { property: 'og:image', content: siteImage },
       ]
     }
   },

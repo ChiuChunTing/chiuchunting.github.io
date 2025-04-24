@@ -16,7 +16,7 @@ const altName = t('exhibition.seo.title')
       />
     </NuxtLink>
     <div class="context mt-5">
-      <h2>靈魂地景 landscapes of the soul</h2>
+      <h2>{{ $t('exhibition.title') }}</h2>
       <p>{{ $t('exhibition.content1') }}</p>
       <p>{{ $t('exhibition.content2') }}</p>
       <NuxtLink to="/exhibitions" class="border-link ml-auto mt-1">+ Details</NuxtLink>

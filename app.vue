@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+// import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import CustomLoadingIndicator from '~/assets/components/layout/Loading.vue'
 import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
@@ -7,15 +8,15 @@ import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 const route = useRoute()
 const { locale } = useI18n()
 const scrollY = ref(0)
-onMounted(() => {
-  const onScroll = () => {
-    scrollY.value = Math.round(window.scrollY / window.innerHeight)
-  }
-  window.addEventListener('scroll', onScroll, { passive: true })
-  onBeforeUnmount(() => {
-    window.removeEventListener('scroll', onScroll)
-  })
-})
+// onMounted(() => {
+  // const onScroll = () => {
+  //   scrollY.value = Math.round(window.scrollY / window.innerHeight)
+  // }
+  // window.addEventListener('scroll', onScroll, { passive: true })
+  // onBeforeUnmount(() => {
+  //   window.removeEventListener('scroll', onScroll)
+  // })
+// })
 watch(()=> locale.value, () => {
   const lang = locale.value === 'zh-TW'? locale.value : 'en-US'
   const alternate = locale.value === 'zh-TW'? 'en-US': locale.value
@@ -56,12 +57,12 @@ watch(()=> locale.value, () => {
   position: relative;
   width: 100vw;
   &.index{
-    .mainHeader{
-      display: none;
-      &.block5{
-        display: flex;
-      }
-    }
+    // .mainHeader{
+    //   display: none;
+    //   &.block5{
+    //     display: flex;
+    //   }
+    // }
   }
   &.about{
     padding: 0;

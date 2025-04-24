@@ -1,4 +1,6 @@
-# 🎨 邱君婷 Chiu Chun-Ting – 藝術家個人網站 / Personal Portfolio Website
+# 🎨 邱君婷 Chiu Chun-Ting
+
+> 藝術家個人網站 / Personal Portfolio Website
 
 ![Website Preview](https://chiuchunting.github.io/square.png)
 
@@ -16,9 +18,10 @@ This is the official website of artist **Chiu Chun-Ting**, showcasing her artwor
 
 ---
 
-## 🌐 社群連結 | Social Media
+## 📬 聯絡方式 | Contact
 
 
+- 📧 [betty3601055@hotmail.com](mailto:betty3601055@hotmail.com)
 - 🎨 [Instagram](https://www.instagram.com/chiu_j_t/)
 - 📸 [Facebook](https://www.facebook.com/profile.php?id=1143919654)
 
