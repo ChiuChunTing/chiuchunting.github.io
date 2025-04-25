@@ -5,8 +5,8 @@ import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
 const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1745503404/exhibition_2025_2.jpg'
 useSeoMeta({
-  title: '歷年作品與系列創作 | 邱君婷 Chiu Chun-Ting | Artworks & Series',
-  ogTitle: 'Chiu Chun-Ting Art Archive | 歷年作品與系列創作 | 邱君婷',
+  title: '歷年作品與系列創作 | 邱君婷 Chiu Chun-Ting | Archive of Works',
+  ogTitle: 'Chiu Chun-Ting Archive of Works | 歷年作品與系列創作 | 邱君婷',
   description: '邱君婷的歷年藝術作品與創作系列總覽，呈現她在夢境與記憶中展開的詩性視覺語言。Explore selected artworks and series by Chiu Chun-Ting that visualize memory, perception, and symbolic storytelling.',
   ogDescription: 'Discover the evolving works and symbolic series by Taiwanese artist Chiu Chun-Ting, merging memory, dreams, and poetic imagery.',
   ogImage: siteImage,

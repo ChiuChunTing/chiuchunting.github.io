@@ -1,8 +1,22 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useNuxtApp } from "nuxt/app"
-const { $gsap, $ScrollTrigger } = useNuxtApp()
 
+// 預先載入最大內容繪製圖片
+import mainImage from '@/assets/img/main.webp'
+import waveImage from '@/assets/img/wave.webp'
+import birdLImage from '@/assets/img/bird_left.webp'
+import birdRImage from '@/assets/img/bird_right.webp'
+useHead({
+  link: [
+    { rel: 'preload', as: 'image', href: mainImage, type: 'image/webp'},
+    { rel: 'preload', as: 'image', href: waveImage, type: 'image/webp'},
+    { rel: 'preload', as: 'image', href: birdRImage, type: 'image/webp'},
+    { rel: 'preload', as: 'image', href: birdLImage, type: 'image/webp'}
+  ]
+})
+
+const { $gsap, $ScrollTrigger } = useNuxtApp()
 const scrollContainer = ref<HTMLDivElement | null>(null)
 const overlayContainer = ref<HTMLDivElement | null>(null)
 
@@ -31,12 +45,12 @@ const setupScrollAnimations = ({ isMobile }: { isMobile: boolean }) => {
     })
     .fromTo(".wave", 
       { 
-        backgroundPositionY: '75%', 
+        backgroundPosition: 'center 80%', 
         backgroundSize: '220%', 
         opacity: 0.9
       }, 
       { 
-        backgroundPositionY: '90%', 
+        backgroundPosition: 'center 90%', 
         backgroundSize: '230%', 
         opacity: 0.5
       }
@@ -69,8 +83,8 @@ const setupScrollAnimations = ({ isMobile }: { isMobile: boolean }) => {
       }
     )
     $gsap.fromTo(".unicorn",
-      { opacity: 0, filter: "blur(4px)"},
-      { opacity: 1, filter: "blur(0px)",
+      { opacity: 0},
+      { opacity: 1,
         ease: "none",
         scrollTrigger: {
           trigger: container,
@@ -96,8 +110,8 @@ const setupScrollAnimations = ({ isMobile }: { isMobile: boolean }) => {
       scrollTrigger: {
         trigger: container,
         start: isMobile ? "top+=100 top" : "top+=100vh top",
-        end: isMobile ? "top+=300 top" : "top+=450vh top",
-        scrub: 1.5
+        end: isMobile ? "top+=300 top" : "top+=500vh top",
+        scrub: 2 // 「滯後感」——越大越柔順，但不能只靠它來控制總時長。
       }
     }
   )
@@ -148,7 +162,10 @@ onMounted(() => {
     ref="scrollContainer"
     class="topContainer" 
   >
-    <h1>邱君婷 | Chiu Chun-Ting</h1>
+    <h1>
+      邱君婷 | Chiu Chun-Ting
+      <span class="visually-hidden">Paintings, Exhibitions, and the Journey of a Contemporary Artist</span>
+    </h1>
 
     <div 
       ref="overlayContainer"
@@ -231,7 +248,10 @@ section.topContainer{
       width:556.5px; /* 9461/17 */
       height:380px;
       background-size: cover;
-      background-image:url('@/assets/img/main.png');	
+      background-image: image-set(
+        url('@/assets/img/main.webp') type('image/webp'),
+        url('@/assets/img/main.png') type('image/png')
+      );
       /* 平板模式 */
       @media (max-width: 768px) {
         width: 100%;
@@ -265,7 +285,11 @@ section.topContainer{
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image:url('@/assets/img/wave.png');	
+    background-position: center -10%;
+    background-image: image-set(
+      url('@/assets/img/wave.webp') type('image/webp'),
+      url('@/assets/img/wave.png') type('image/png')
+    );
 
     height: 150vw;
     width: 150vw;
@@ -274,8 +298,7 @@ section.topContainer{
     /* 平板模式 */
     @media (max-width: 768px) {
       background-size: 220%;
-      background-position-y: 75%;
-      background-position-x: center; 
+      background-position: center 80%;
       width: 110vw;
       height: 110vw;
       left: 0%;
@@ -293,10 +316,16 @@ section.topContainer{
   }
 
   .bird-right{
-    background-image:url('@/assets/img/bird_right.png');	
+    background-image: image-set(
+      url('@/assets/img/bird_right.webp') type('image/webp'),
+      url('@/assets/img/bird_right.png') type('image/png')
+    );
   }
   .bird-left{
-    background-image:url('@/assets/img/bird_left.png');	
+    background-image: image-set(
+      url('@/assets/img/bird_left.webp') type('image/webp'),
+      url('@/assets/img/bird_left.png') type('image/png')
+    );
   }
 }
 

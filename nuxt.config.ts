@@ -1,8 +1,7 @@
 const siteURL = 'https://chiuchunting.github.io/'
 const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_post1200X630smart/v1744778738/exhibition_2025.jpg'
+
 const title = '邱君婷 Chiu Chun-Ting'
-const descriptionTw = '邱君婷是一位當代表現藝術家，以繪畫探索夢境、記憶與感知之間的詩性空間。她的作品充滿象徵符碼，如孩童、狼、甲蟲與星星，交織出靜謐而深刻的視覺敘事。從柔和色彩到細膩結構，她以圖像引領觀者進入一場靜默而親密的凝視旅程。網站呈現其歷年創作與最新展覽動態，宛如一座夢與現實交織的圖書館。'
-const descriptionEn = 'Chiu Chun Ting is a contemporary visual artist whose paintings explore poetic realms between dreams, memory, and perception. Her works feature recurring symbols—children, wolves, beetles, stars—that evoke quiet yet powerful narratives. With gentle palettes and layered composition, she transforms viewing into an intimate, reflective experience. This site showcases her past works and latest exhibitions, inviting you into a dreamlike library of visual storytelling.'
 const keyword = '邱君婷, Chiu Chun-Ting, contemporary artist, visual art, symbolic painting, Taiwanese artist, art portfolio, mixed media, dreamlike art'
 
 export default defineNuxtConfig({
@@ -16,6 +15,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/svg+xml', href: `${siteURL}favicon.svg` },
         { rel: 'shortcut icon', href: `${siteURL}favicon.ico` },
         { rel: 'apple-touch-icon', sizes: '180x180', href: `${siteURL}apple-touch-icon.png` },
+        { rel: 'me', href: 'https://github.com/ChiuChunTing' }
       ],
       meta: [
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'},
@@ -29,17 +29,31 @@ export default defineNuxtConfig({
         { property: 'og:title', content: title},
         { name: 'twitter:title', content: `${title} | Art Portfolio` },
 
-        { name: 'description', content: descriptionTw},
-        { property: 'og:description', content: `${descriptionTw} ${descriptionEn}` },
-        { name: 'twitter:description', content: descriptionEn },
+        // 聚焦藝術語境
+        {
+          name: 'description',
+          content: '以繪畫為語言，構築游移於現實與幻想、記憶與感知的詩性空間。Chiu Chun-Ting paints a poetic space between reality, memory, and imagination through visual storytelling.'
+        },
+        // 聚焦內容範圍
+        {
+          property: 'og:description',
+          content: '呈現邱君婷的創作脈絡、歷年作品與展覽訊息。Discover Chiu Chun-Ting’s creative journey through past works, exhibitions, and ongoing projects.'
+        },
+        {
+          name: 'twitter:description',
+          content: '呈現邱君婷的創作脈絡、歷年作品與展覽訊息。Discover Chiu Chun-Ting’s creative journey through past works, exhibitions, and ongoing projects.'
+        },
+
         { name: 'twitter:image', content: siteImage },
         { property: 'og:image', content: siteImage },
+
+        { property: 'fb:app_id', content: '123456789012345' },
       ]
     }
   },
   ssr: false,
   modules: [
-    '@nuxt/image',
+    // '@nuxt/image',
     '@nuxtjs/cloudinary',
     'nuxt-swiper',
     '@nuxtjs/i18n'
@@ -52,11 +66,11 @@ export default defineNuxtConfig({
       cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || ''
     }
   },
-  image: {
-    cloudinary: {
-      baseURL: '' // 會自動從 runtimeConfig 中取得
-    }
-  },
+  // image: {
+  //   cloudinary: {
+  //     baseURL: '' // 會自動從 runtimeConfig 中取得
+  //   }
+  // },
   cloudinary: {
     cloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
     useComponent: true,

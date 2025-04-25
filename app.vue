@@ -41,7 +41,8 @@ watch(()=> locale.value, () => {
     /> 
     <header class="mainHeader" :class="`block${scrollY}`">
       <NuxtLink to="/" class="homeLink" rel="home" title="邱君婷 Chiu Chun-Ting">
-        邱君婷|Chiu Chun-Ting
+        邱君婷 | Chiu Chun-Ting
+        <span class="visually-hidden">artist portfolio, exhibition archive, latest news</span>
       </NuxtLink>
       <HamburgerMenu />
     </header>

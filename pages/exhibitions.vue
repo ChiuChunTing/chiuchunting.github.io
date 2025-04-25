@@ -1,32 +1,24 @@
 <script setup>
+import { exhibitionList } from '@/assets/data/exhibition'
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
-const artist = '邱君婷 Chiu Chun-Ting'
-const title = '靈魂地景 | Landscapes of the Soul'
-const location = '伊日後樂園 | BACK-Y'
-const start = '2025/04/24'
-const end = '2025/05/17'
-const siteImage1 = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1744778738/exhibition_2025.jpg'
-const siteImage2 = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1745503404/exhibition_2025_2.jpg'
-const siteURL = 'https://chiuchunting.github.io/exhibitions'
-const description = `邱君婷的最新展覽《${title}》於 ${location} 展出，展期自 ${start} 至 ${end}，呈現她以夢境與感知為語彙的創作軌跡。`
+const currentExhibition = exhibitionList[0]
 
-const imageAlt = `${title}_${location}_${start}-${end}_${artist}`
 useSeoMeta({
-  title: `${title}｜展覽資訊 Exhibitions｜${artist}`,
-  description: description,
-  keywords: 'Chiu Chun-Ting, 邱君婷, 靈魂地景, 當代藝術展覽, 台北展覽, BACK-Y, 伊日後樂園, Taiwanese artist, solo exhibition, contemporary art',
+  title: currentExhibition.title,
+  description: currentExhibition.description,
+  keywords: currentExhibition.keywords,
 
-  ogTitle: `${title}｜Chiu Chun-Ting Solo Exhibition`,
-  ogDescription: `Discover Chiu Chun-Ting's latest solo exhibition '${title}' at ${location}, on view from ${start} to ${end}. A visual journey into dreams, memory, and symbolic landscapes.`,
-  ogImage: siteImage1,
-  ogUrl: siteURL,
+  ogTitle: currentExhibition.ogTitle,
+  ogDescription: currentExhibition.ogDescription,
+  ogImage: currentExhibition.siteImage1,
+  ogUrl: currentExhibition.siteURL,
   ogType: 'article',
 
-  twitterTitle: `${title} | Chiu Chun-Ting Exhibition`,
-  twitterDescription: `Explore 'Landscapes of the Soul', a solo show by Chiu Chun-Ting at BACK-Y, Taipei, from ${start} to ${end}.`,
-  twitterImage: siteImage2
+  twitterTitle: currentExhibition.ogTitle,
+  twitterDescription: currentExhibition.ogDescription,
+  twitterImage: currentExhibition.siteImage2
 })
 
 useHead({
@@ -36,32 +28,32 @@ useHead({
       children: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Event",
-        "name": title,
-        "startDate": "2025-04-24",
-        "endDate": "2025-05-17",
+        "name": currentExhibition.name,
+        "startDate": currentExhibition.startDate,
+        "endDate": currentExhibition.endDate,
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "eventStatus": "https://schema.org/EventScheduled",
         "location": {
           "@type": "Place",
-          "name": location,
+          "name": currentExhibition.location,
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Taipei",
             "addressCountry": "TW"
           }
         },
-        "image": [siteImage1, siteImage2],
-        "description": description,
+        "image": [currentExhibition.siteImage1, currentExhibition.siteImage2],
+        "description": currentExhibition.description,
         "performer": {
           "@type": "Person",
-          "name": artist
+          "name": currentExhibition.artist
         },
         "organizer": {
           "@type": "Organization",
-          "name": location,
+          "name": currentExhibition.location,
           "url": "https://www.instagram.com/back_yiri/"
         },
-        "url": siteURL
+        "url": currentExhibition.siteURL
       })
     }
   ]
@@ -75,15 +67,15 @@ useHead({
       src="exhibition_2025" 
       placeholder="blur"
       loading="lazy"
-      :alt="imageAlt"
+      :alt="currentExhibition.imageAlt"
       width="762"
       height="953"
     />
 
     <div class="info">
-      <p>{{ title }}</p>
-      <p>{{ location }}</p>
-      <p>{{start}} - {{ end }}</p>
+      <p>{{ currentExhibition.name }}</p>
+      <p>{{ currentExhibition.location }}</p>
+      <p>{{ currentExhibition.start}} - {{ currentExhibition.end }}</p>
     </div>
   </section>
 

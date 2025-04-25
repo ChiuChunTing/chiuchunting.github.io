@@ -14,6 +14,7 @@
 <style lang="scss" scoped>
 .introductionContainer{
   background-color: var(--white);
+  box-shadow: 0px -10px 15px rgba(200, 200, 200, 0.25);
   height: 100vh;
   padding: 1.5rem;
   /* 平板模式 */

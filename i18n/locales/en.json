@@ -13,10 +13,6 @@
   "hello": "Hello!",
   "language": "Language",
 
-  "home": {
-    "name": "Home"
-  },
-
   "intro": {
     "content1": "The works of Chiu Chun-ting unfold like maps of dreams—quiet, whispering inner theatres.",
     "content2": "Through painting as her language, she constructs poetic spaces that drift between reality and imagination, memory and perception. Her recurring symbols—children, wolves, shells, beetles, moths, stars, and wings—serve both as characters and as dreamlike emblems, gently telling stories of shelter, embrace, and the soul’s journey.",
@@ -29,11 +25,5 @@
     "title": "Landscapes of the soul",
     "content1": "This exhibition centers on an ongoing inquiry into the nature of life and existence. Through her multi-media practice, Chiu expands narrative structures while exploring the interconnectedness of humanity and the natural world, as well as the cyclical rhythm of life.",
     "content2": "In terms of form, the works are constructed through the layering and interweaving of imagery, deliberately obscuring boundaries to generate an open-ended symbolic language and a fluid narrative structure. Existing stories are extended and reinterpreted, giving rise to new meanings. Each piece becomes a theatrical space, inviting viewers into a contemplative journey that traverses the realms of dream and reality, time and space, narrative and symbol."
-  },
-
-  "works": {
-    "seo": {
-      "seriesDescription": "瀏覽邱君婷{year}年間藝術創作作品。"
-    }
   }
 }
