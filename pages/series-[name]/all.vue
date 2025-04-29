@@ -14,7 +14,6 @@ if (!targetSeries) {
   throw showError({ statusCode: 404, statusMessage: t('404.series'), fatal: false })
 }else{
   const title = `${seriesName} 年作品系列 | Works from ${seriesName}`
-  const url = `https://chiuchunting.github.io/series-${seriesName}/all`
   const image = `https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1742481663/${targetSeries['works'][0]['img']}.jpg`
   const zhDesc = `本頁展示邱君婷於 ${seriesName} 年的系列作品，呈現她當年度在記憶、夢境與感知等主題上的創作延伸。`
   const enDesc = `This page presents selected artworks created by Chiu Chun-Ting in ${seriesName}, exploring themes of memory, dreams, and perception through symbolic visual language.`
@@ -24,7 +23,6 @@ if (!targetSeries) {
     description: `${zhDesc} ${enDesc}`,
     ogTitle: `${title} | Chiu Chun-Ting Art Archive`,
     ogDescription: enDesc,
-    ogUrl: url,
     ogImage: image,
     ogType: 'article',
   

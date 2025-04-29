@@ -21,7 +21,6 @@ useSeoMeta({
   keywords: '邱君婷, Chiu Chun-Ting, 當代藝術家, 畫家, 藝術家簡介, 藝術聲明, biography, artistic statement, Taiwanese artist, visual artist',
 
   ogType: 'profile',
-  ogUrl: 'https://chiuchunting.github.io/about',
   ogImage: siteImage,
   twitterImage: siteImage,
 

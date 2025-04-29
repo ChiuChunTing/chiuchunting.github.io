@@ -45,9 +45,7 @@ export default defineNuxtConfig({
         },
 
         { name: 'twitter:image', content: siteImage },
-        { property: 'og:image', content: siteImage },
-
-        { property: 'fb:app_id', content: '889708896604789' },
+        { property: 'og:image', content: siteImage }
       ]
     }
   },

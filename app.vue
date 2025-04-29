@@ -34,7 +34,8 @@ watch(
       meta: [
         { property: 'og:locale', content: lang },
         { property: 'og:locale:alternate', content: alternate },
-        { property: 'og:url', content: canonicalURL }
+        { property: 'og:url', content: canonicalURL },
+        { property: 'fb:app_id', content: '889708896604789' }
       ]
     })
   }, 
