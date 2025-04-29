@@ -22,9 +22,6 @@ watch(
       ? `${baseURL}/en${currentPath}`
       : `${baseURL}${currentPath.replace(/^\/en/, '')}`
     
-    console.log(canonicalURL);
-    console.log(alternateURL);
-    
     useHead({
       htmlAttrs: {lang: lang },
       link: [
