@@ -11,7 +11,7 @@ const seriesName = route.params.name
 
 const targetSeries = worksList.find(item => item.series === seriesName)
 if (!targetSeries) {
-  router.push('/404')
+  throw showError({ statusCode: 404, statusMessage: t('404.series'), fatal: false })
 }else{
   const title = `${seriesName} 年作品系列 | Works from ${seriesName}`
   const url = `https://chiuchunting.github.io/series-${seriesName}/all`

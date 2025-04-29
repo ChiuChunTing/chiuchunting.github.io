@@ -53,10 +53,10 @@ export default defineNuxtConfig({
   },
   ssr: false,
   modules: [
-    // '@nuxt/image',
     '@nuxtjs/cloudinary',
     'nuxt-swiper',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxtjs/sitemap'
   ],
   compatibilityDate: '2025-04-23',
   devtools: { enabled: true },
@@ -66,24 +66,23 @@ export default defineNuxtConfig({
       cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || ''
     }
   },
-  // image: {
-  //   cloudinary: {
-  //     baseURL: '' // 會自動從 runtimeConfig 中取得
-  //   }
-  // },
   cloudinary: {
     cloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
     useComponent: true,
     secure: true
   },
   i18n: {
+    baseUrl: siteURL,
+    defaultLocale: 'zh-TW', // 設定默認語言為中文
     locales: [
       { code: 'zh-TW',  name: '中文', file: 'zh-tw.json' },
       { code: 'en',  name: 'En', file: 'en.json' },
-    ],
-    // strategy: 'no_prefix', // 不使用語言前綴
-    defaultLocale: 'zh-TW', // 設定默認語言為中文
+    ]
   },
+  site: { 
+    url: siteURL, 
+    name: title
+  }, 
   plugins: [
     '~/plugins/gsap.client.ts',
     '~/plugins/ga.client.ts',

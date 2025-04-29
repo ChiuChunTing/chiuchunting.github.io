@@ -1,6 +1,6 @@
 # robots.txt for chiuchunting.github.io
 
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://chiuchunting.github.io/sitemap.xml

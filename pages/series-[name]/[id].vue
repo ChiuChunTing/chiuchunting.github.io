@@ -4,11 +4,12 @@ import { useRoute, useRouter } from 'vue-router'
 import { worksList } from '@/assets/data/worksList'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 const { t } = useI18n()
+
 const route = useRoute()
 const router = useRouter()
 const localePath = useLocalePath()
 
-interface Work {
+interface WorkItem {
   index: string
   nameTw: string
   nameEn: string
@@ -17,15 +18,15 @@ interface Work {
   year: number
 }
 
-interface WorkSeries {
-  series: string
-  works: Work[]
-}
+// interface WorkSeries {
+//   series: string
+//   works: WorkItem[]
+// }
 
 const seriesIndex = ref('')
-const targetWork = ref<Work | null>(null)
-const prevWork = ref<Work | null>(null)
-const nextWork = ref<Work | null>(null)
+const targetWork = ref<WorkItem | null>(null)
+const prevWork = ref<WorkItem | null>(null)
+const nextWork = ref<WorkItem | null>(null)
 
 watchEffect(() => {
   const seriesName = route.params.name
@@ -33,20 +34,19 @@ watchEffect(() => {
 
   const targetSeries = worksList.find(item => item.series === seriesName)
   if (!targetSeries) {
-    router.push('/404')
-    return
+    throw showError({ statusCode: 404, statusMessage: t('404.series'), fatal: false })
   }
 
   const { series, works } = targetSeries
   seriesIndex.value = series? series: ''
   const imgInfoIndex = works.findIndex(work => work.index === imageId)
   if (imgInfoIndex === -1) {
-    router.push('/404')
-    return
+    throw showError({ statusCode: 404, statusMessage: t('404.work'), fatal: false })
   }
 
   const worksCount = works.length
   targetWork.value = works[imgInfoIndex]
+
   if(worksCount > 1){    
     prevWork.value = imgInfoIndex >= 1 ? works[imgInfoIndex - 1]: null
     nextWork.value = imgInfoIndex < worksCount - 1 ? works[imgInfoIndex + 1] : null
@@ -54,11 +54,12 @@ watchEffect(() => {
 
   const langKey = t('key') || 'nameTw'
   const name = targetWork.value && langKey in targetWork.value 
-    ? targetWork.value[langKey as keyof Work] 
+    ? targetWork.value[langKey as keyof WorkItem] 
     : ''
   const title = `${name} | Chiu Chun-Ting 邱君婷`
+
   useSeoMeta({
-    title: title,
+    title,
     ogTitle: title,
     twitterTitle: title,
   })
