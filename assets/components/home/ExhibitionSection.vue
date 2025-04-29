@@ -1,6 +1,10 @@
+<script setup>
+  const localePath = useLocalePath()
+</script>
+
 <template>
   <section class="exhibitionsContainer mb-5">
-    <NuxtLink to="/exhibitions" class="w-full context">
+    <NuxtLink :to="localePath('/exhibitions')" class="w-full context">
       <CldImage 
         src="exhibition_2025" 
         placeholder="blur"
@@ -14,9 +18,8 @@
       <h2 class="mb-1">{{ $t('exhibition.title') }}</h2>
       <p>{{ $t('exhibition.content1') }}</p>
       <p>{{ $t('exhibition.content2') }}</p>
-      <NuxtLink to="/exhibitions" class="border-link ml-auto mt-1">+ Details</NuxtLink>
+      <NuxtLink :to="localePath('/exhibitions')" class="border-link ml-auto mt-1">+ Details</NuxtLink>
     </div>
-
   </section>
 </template>
 

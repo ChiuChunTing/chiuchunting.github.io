@@ -1,3 +1,7 @@
+<script setup>
+  const localePath = useLocalePath()
+</script>
+
 <template>
   <section class="introductionContainer">
     <div class="context mt-5 mb-5">
@@ -6,7 +10,7 @@
       <p>{{ $t('intro.content3') }}</p>
       <p>{{ $t('intro.content4') }}</p>
       <p>{{ $t('intro.content5') }}</p>
-      <NuxtLink to="/about" class="border-link ml-auto mt-1">+ More</NuxtLink>
+      <NuxtLink :to="localePath('/about')" class="border-link ml-auto mt-1">+ More</NuxtLink>
     </div>
   </section>
 </template>

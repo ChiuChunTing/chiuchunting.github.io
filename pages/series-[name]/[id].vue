@@ -3,9 +3,10 @@ import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { worksList } from '@/assets/data/worksList'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const localePath = useLocalePath()
 
 interface Work {
   index: string
@@ -68,44 +69,12 @@ watchEffect(() => {
 <template>
   <main v-if="seriesIndex">
     <header>
-      <nuxt-link :to="{ 
-        name: 'series-name-all', 
-        params: { 
-          name: seriesIndex
-        } 
-      }">
+      <NuxtLink :to="localePath(`/series-${seriesIndex}/all`)">
         < {{ seriesIndex }}
-      </nuxt-link>
+      </NuxtLink>
     </header>
 
     <section v-if="targetWork" class="frame">
-      <!-- <div class="page" v-if="prevWork || nextWork">
-        <nuxt-link 
-          v-if="prevWork"
-          :to="{ 
-            name: 'series-name-id', 
-            params: { 
-              name: seriesIndex, 
-              id: prevWork.index
-            }
-          }"
-        >
-          <
-        </nuxt-link>
-        <nuxt-link
-          v-if="nextWork"
-          :to="{ 
-            name: 'series-name-id', 
-            params: { 
-              name: seriesIndex, 
-              id: nextWork.index
-            }
-          }"
-        >
-          >
-        </nuxt-link>
-      </div> -->
-
       <CldImage
         :src="targetWork.img"
         :alt="targetWork[$t('key')] || ''"
@@ -114,6 +83,7 @@ watchEffect(() => {
         placeholder="blur"
         loading="lazy"
       />
+
       <div class="info" v-if="targetWork">
         <p>{{ targetWork[$t('key')] || '' }}</p>
         <p>{{ targetWork.size }}</p>

@@ -58,7 +58,7 @@ const soloExhibition = ref([
 
 const groupExhibition = ref([
   {year: 2024, nameTw: '<十年之前> 伊日藝術計畫，台北', nameEn: '<A Decade Ago> YIRI ART, Taipei'},
-  {year: 2022, nameTw: '<花園> 慢慢鞥活美，台北', nameEn: '<The Garden> MM Studio, Taipei'},
+  {year: 2022, nameTw: '<花園> 慢慢生活美，台北', nameEn: '<The Garden> MM Studio, Taipei'},
   {year: 2020, nameTw: '<動物研究室> 241藝術空間，新竹', nameEn: '<Animal Lab> 241 Art Gallery, Hsinchu'},
   {year: 2018, nameTw: '<粉樂町> 當代藝術展，BELLAVITA，台北', nameEn: '<Very Fun Park> Contemporary Art Exhibition, BELLAVITA, Taipei'},
   {year: 2018, nameTw: '<Art Fair Tokyo>，東京，日本', nameEn: '<Art Fair Tokyo>, Tokyo, Japan'},
@@ -81,6 +81,11 @@ const publicCollection = ref([
   {year: 2013, nameTw: '毓繡美術館巷弄美學計畫', nameEn: '<Self-portrait> <Melodica> <Cradle Bed> YU-HSIU Fine Art Museum'},
   {year: 2011, nameTw: '國家美術館，青年藝術家典藏', nameEn: '<Base 5> collected by National Taiwan Fine Art Museum'}
 ])
+
+// const articles = ref([
+//   {title: '邱君婷：靈魂地景', publish: '2025', link: 'https://yiriarts.com.tw/exhibitions/175-chiu-chun-ting-landscapes-of-the-soul/overview/?srsltid=AfmBOooA5mvNW0Fwd_kdnecVKUKW--IhhSzKRfiGEocHSA3g1hlDU44v'},
+//   {title: '日夢之境_邱君婷', publish: '2020-05-04', link: 'https://yiri.com.tw/category/yiri-living/460-2020-05-04-01-38-10'}
+// ])
 
 </script>
 
@@ -127,6 +132,16 @@ const publicCollection = ref([
       </ul>
     </section>
 
+    <!-- <section>
+      <h2>{{ $t('articles') }}</h2>
+      <ul>
+        <li v-for="(item, index) in articles" :key="index">
+          <span>{{ item.year }}</span>
+          {{ item[$t('key')] || '' }}
+        </li>
+      </ul>
+    </section> -->
+  
     <WebFooter />
   </main>
 </template>

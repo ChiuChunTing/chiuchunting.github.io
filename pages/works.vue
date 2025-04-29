@@ -2,6 +2,7 @@
 import { Pagination } from 'swiper/modules'
 import { worksList } from '@/assets/data/worksList'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
+const localePath = useLocalePath()
 
 const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1745503404/exhibition_2025_2.jpg'
 useSeoMeta({
@@ -35,17 +36,12 @@ useSeoMeta({
     <section v-for="item in worksList" :key="item.name">
       <header>
         <h1>{{ item.series }}</h1>
-        <nuxt-link 
+        <NuxtLink 
           :key="item.series"
-          :to="{ 
-            name: 'series-name-all', 
-            params: { 
-              name: item.series
-            }
-          }"
+          :to="localePath(`/series-${item.series}/all`)"
         >
           More
-        </nuxt-link>
+        </NuxtLink>
       </header>
       <div class="series">
         <ClientOnly>
@@ -70,17 +66,10 @@ useSeoMeta({
 
           >
             <swiper-slide v-for="work in item.works" :key="work.index">
-              <nuxt-link 
+              <NuxtLink 
                 :key="work.index"
-                :to="{ 
-                  name: 'series-name-id', 
-                  params: { 
-                    name: item.series,
-                    id: work.index
-                  }
-                }"
+                :to="localePath(`/series-${item.series}/${work.index}`)"
               >
-              <!-- :smallSrc='placeholderPath(work.img)'  -->
                 <CldImage
                   v-if="work.img"
                   :src="work.img"
@@ -90,7 +79,7 @@ useSeoMeta({
                   placeholder="blur"
                   loading="lazy"
                 />
-              </nuxt-link>
+              </NuxtLink>
             </swiper-slide>
           </swiper-container>
         </ClientOnly>

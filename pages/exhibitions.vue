@@ -95,7 +95,7 @@ useHead({
 section{
   flex-direction: column;
   gap: 1rem;
-  padding: 0 1.5rem;
+  padding: 2rem 1.5rem;
   img{
     width: 100%;
     max-width: 1024px;

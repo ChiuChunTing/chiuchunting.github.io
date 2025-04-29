@@ -81,7 +81,7 @@ export default defineNuxtConfig({
       { code: 'zh-TW',  name: '中文', file: 'zh-tw.json' },
       { code: 'en',  name: 'En', file: 'en.json' },
     ],
-    strategy: 'no_prefix', // 不使用語言前綴
+    // strategy: 'no_prefix', // 不使用語言前綴
     defaultLocale: 'zh-TW', // 設定默認語言為中文
   },
   plugins: [

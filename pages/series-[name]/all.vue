@@ -3,6 +3,7 @@ import { worksList } from '@/assets/data/worksList'
 import { useRoute, useRouter } from 'vue-router'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
+const localePath = useLocalePath()
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
@@ -47,16 +48,10 @@ const parseAlt = (work:any) => {
       <h1>{{ seriesName }}</h1>
     </header>
     <section class="grid-container">
-      <nuxt-link 
+      <NuxtLink 
         v-for="work in targetSeries.works" 
         :key="work.index"
-        :to="{ 
-          name: 'series-name-id', 
-          params: { 
-            name: targetSeries.series, 
-            id: work.index
-          }
-        }"
+        :to="localePath(`/series-${targetSeries.series}/${work.index}`)"
         class="grid-item"
       >
         <CldImage
@@ -68,7 +63,7 @@ const parseAlt = (work:any) => {
           placeholder="blur"
           loading="lazy"
         />
-      </nuxt-link>
+      </NuxtLink>
     </section>
 
     <WebFooter />

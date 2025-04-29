@@ -3,7 +3,8 @@
   import Socials from '~/assets/components/layout/Socials.vue'
   const router = useRouter()
   const { locale, locales, setLocale } = useI18n()
-  
+  const localePath = useLocalePath()
+
   const menuOpen = ref(false)
   // const windowWidth = ref(0)
   const updatemenuOpen = () => {
@@ -51,9 +52,9 @@
     <div class="menu-placeholder"></div>
 
     <div class="menu-nav-link">
-      <NuxtLink to="/about">About</NuxtLink>
-      <NuxtLink to="/works">Works</NuxtLink>
-      <NuxtLink to="/exhibitions">Exhibitions</NuxtLink>
+      <NuxtLink :to="localePath('/about')">About</NuxtLink>
+      <NuxtLink :to="localePath('/works')">Works</NuxtLink>
+      <NuxtLink :to="localePath('/exhibitions')">Exhibitions</NuxtLink>
       <template v-for="lang in locales" :key="lang.code">
         <button 
           v-if="lang.code !== locale"  

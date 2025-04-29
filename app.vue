@@ -7,6 +7,8 @@ import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
 
 const route = useRoute()
 const { locale } = useI18n()
+const localePath = useLocalePath()
+
 const scrollY = ref(0)
 // onMounted(() => {
   // const onScroll = () => {
@@ -28,7 +30,6 @@ watch(()=> locale.value, () => {
     ]
   })
 }, { immediate: true })
-
 </script>
 
 <template>
@@ -40,7 +41,7 @@ watch(()=> locale.value, () => {
       color="repeating-linear-gradient(to right, rgb(174, 214, 223) 0%, rgb(42, 132, 194) 100%)"
     /> 
     <header class="mainHeader" :class="`block${scrollY}`">
-      <NuxtLink to="/" class="homeLink" rel="home" title="邱君婷 Chiu Chun-Ting">
+      <NuxtLink :to="localePath('/')" class="homeLink" rel="home" title="邱君婷 Chiu Chun-Ting">
         邱君婷 | Chiu Chun-Ting
         <span class="visually-hidden">artist portfolio, exhibition archive, latest news</span>
       </NuxtLink>
@@ -57,28 +58,29 @@ watch(()=> locale.value, () => {
 .main {
   position: relative;
   width: 100vw;
-  &.index{
+  // &.index___en,
+  // &.index___zh-TW{
     // .mainHeader{
     //   display: none;
     //   &.block5{
     //     display: flex;
     //   }
     // }
-  }
-  &.about{
+  // }
+  &.about___en,
+  &.about___zh-TW{
     padding: 0;
   }
-  &.series-name-id{
+  &.series-name-id___en,
+  &.series-name-id___zh-TW{
     .mainHeader{
       position: initial;
       z-index: 1;
       padding-bottom: 0;
     }
-    // .homeLink{
-    //   visibility: hidden;
-    // }
   }
-  &.exhibitions{
+  &.exhibitions___en,
+  &.exhibitions___zh-TW{
     .mainHeader{
       position: initial;
       z-index: 1;
@@ -90,11 +92,6 @@ watch(()=> locale.value, () => {
     top: 0;
     left: 0;
     z-index: 10;
-    /* 平板模式 */
-    // @media (max-width: 768px) {
-    //   position: initial;
-    //   z-index: 1;
-    // }
 
     display: flex;
     flex-direction: row;
