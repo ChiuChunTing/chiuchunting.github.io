@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         // 聚焦藝術語境
         {
           name: 'description',
-          content: '以繪畫為語言，構築游移於現實與幻想、記憶與感知的詩性空間。Chiu Chun-Ting paints a poetic space between reality, memory, and imagination through visual storytelling.'
+          content: '邱君婷以繪畫為語言，構築游移於現實與幻想、記憶與感知的詩性空間。Chiu Chun-Ting paints a poetic space between reality, memory, and imagination through visual storytelling.'
         },
         // 聚焦內容範圍
         {

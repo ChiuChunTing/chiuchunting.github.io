@@ -190,7 +190,7 @@ section.topContainer{
   margin-top: -4.5rem;
   height: 450vh;
   @media (max-width: 767px) {
-    height: 250vh; // 手機版 scroll 範圍縮短
+    height: 350vh; // 手機版 scroll 範圍縮短
   }
 
   h1{

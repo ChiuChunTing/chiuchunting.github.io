@@ -1,6 +1,4 @@
 <script setup>
-// import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import CustomLoadingIndicator from '~/assets/components/layout/Loading.vue'
 import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
@@ -9,27 +7,39 @@ const route = useRoute()
 const { locale } = useI18n()
 const localePath = useLocalePath()
 
-const scrollY = ref(0)
-// onMounted(() => {
-  // const onScroll = () => {
-  //   scrollY.value = Math.round(window.scrollY / window.innerHeight)
-  // }
-  // window.addEventListener('scroll', onScroll, { passive: true })
-  // onBeforeUnmount(() => {
-  //   window.removeEventListener('scroll', onScroll)
-  // })
-// })
-watch(()=> locale.value, () => {
-  const lang = locale.value === 'zh-TW'? locale.value : 'en-US'
-  const alternate = locale.value === 'zh-TW'? 'en-US': locale.value
-  useHead({
-    htmlAttrs: {lang: lang },
-    meta: [
-      { property: 'og:locale', content: lang },
-      { property: 'og:locale:alternate', content: alternate },
-    ]
-  })
-}, { immediate: true })
+const baseURL = 'https://chiuchunting.github.io'
+
+// 監聽 route（頁面切換）: locale-語系切換目前會換path
+watch(
+  () => route.path,
+  () => {
+    const lang = locale.value === 'zh-TW'? 'zh-TW' : 'en-US'
+    const alternate = locale.value === 'zh-TW'? 'en-US': 'zh-TW'
+    const currentPath = route.path
+
+    const canonicalURL = `${baseURL}${currentPath}`
+    const alternateURL = locale.value === 'zh-TW'
+      ? `${baseURL}/en${currentPath}`
+      : `${baseURL}${currentPath.replace(/^\/en/, '')}`
+    
+    console.log(canonicalURL);
+    console.log(alternateURL);
+    
+    useHead({
+      htmlAttrs: {lang: lang },
+      link: [
+        { rel: 'canonical', href: canonicalURL },
+        { rel: 'alternate', hreflang: alternate, href: alternateURL }
+      ],
+      meta: [
+        { property: 'og:locale', content: lang },
+        { property: 'og:locale:alternate', content: alternate },
+        { property: 'og:url', content: canonicalURL }
+      ]
+    })
+  }, 
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -40,7 +50,7 @@ watch(()=> locale.value, () => {
       :height="5"
       color="repeating-linear-gradient(to right, rgb(174, 214, 223) 0%, rgb(42, 132, 194) 100%)"
     /> 
-    <header class="mainHeader" :class="`block${scrollY}`">
+    <header class="mainHeader">
       <NuxtLink :to="localePath('/')" class="homeLink" rel="home" title="邱君婷 Chiu Chun-Ting">
         邱君婷 | Chiu Chun-Ting
         <span class="visually-hidden">artist portfolio, exhibition archive, latest news</span>
