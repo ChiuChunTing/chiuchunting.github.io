@@ -16,7 +16,6 @@
     "@nuxtjs/sitemap": "^7.2.9",
     "gsap": "^3.12.7",
     "nuxt": "^3.14.1592",
-    "nuxt-schema-org": "5.0.5",
     "nuxt-swiper": "2.0.0",
     "sass-loader": "^16.0.4",
     "vue": "latest",

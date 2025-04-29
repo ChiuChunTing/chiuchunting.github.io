@@ -5,6 +5,53 @@ import WebFooter from '@/assets/components/layout/WebFooter.vue'
 
 const currentExhibition = exhibitionList[0]
 
+const canonicalURL = 'https://chiuchunting.github.io/exhibitions'
+const alternateURL = 'https://chiuchunting.github.io/en/exhibitions'
+
+//https://nuxtseo.com/learn/mastering-meta/schema-org
+useHead({
+  link: [
+    { rel: 'canonical', href: canonicalURL },
+    { rel: 'alternate', hreflang: 'en-US', href: alternateURL }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": currentExhibition.name,
+        "startDate": currentExhibition.startDate,
+        "endDate": currentExhibition.endDate,
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": currentExhibition.location,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Taipei",
+            "addressCountry": "TW"
+          }
+        },
+        "image": [currentExhibition.siteImage1, currentExhibition.siteImage2],
+        "description": currentExhibition.description,
+        "performer": {
+          "@type": "Person",
+          "name": currentExhibition.artist
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": currentExhibition.location,
+          "url": "https://www.instagram.com/back_yiri/"
+        },
+        "url": currentExhibition.siteURL
+      }),
+      tagPriority: 1
+    }
+  ]
+})
+
 useSeoMeta({
   title: currentExhibition.title,
   description: currentExhibition.description,
@@ -14,44 +61,12 @@ useSeoMeta({
   ogDescription: currentExhibition.ogDescription,
   ogImage: currentExhibition.siteImage1,
   ogType: 'article',
+  ogUrl: canonicalURL,
 
   twitterTitle: currentExhibition.ogTitle,
   twitterDescription: currentExhibition.ogDescription,
   twitterImage: currentExhibition.siteImage2
 })
-
-useSchemaOrg([
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": currentExhibition.name,
-    "startDate": currentExhibition.startDate,
-    "endDate": currentExhibition.endDate,
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": {
-      "@type": "Place",
-      "name": currentExhibition.location,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Taipei",
-        "addressCountry": "TW"
-      }
-    },
-    "image": [currentExhibition.siteImage1, currentExhibition.siteImage2],
-    "description": currentExhibition.description,
-    "performer": {
-      "@type": "Person",
-      "name": currentExhibition.artist
-    },
-    "organizer": {
-      "@type": "Organization",
-      "name": currentExhibition.location,
-      "url": "https://www.instagram.com/back_yiri/"
-    },
-    "url": currentExhibition.siteURL
-  }
-])
 
 </script>
 

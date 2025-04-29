@@ -5,6 +5,15 @@ import WebFooter from '@/assets/components/layout/WebFooter.vue'
 const localePath = useLocalePath()
 
 const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_square/v1745503404/exhibition_2025_2.jpg'
+const canonicalURL = 'https://chiuchunting.github.io/works'
+const alternateURL = 'https://chiuchunting.github.io/en/works'
+useHead({
+  link: [
+    { rel: 'canonical', href: canonicalURL },
+    { rel: 'alternate', hreflang: 'en-US', href: alternateURL }
+  ]
+})
+
 useSeoMeta({
   title: '歷年作品與系列創作 | 邱君婷 Chiu Chun-Ting | Archive of Works',
   ogTitle: 'Chiu Chun-Ting Archive of Works | 歷年作品與系列創作 | 邱君婷',
@@ -12,7 +21,7 @@ useSeoMeta({
   ogDescription: 'Discover the evolving works and symbolic series by Taiwanese artist Chiu Chun-Ting, merging memory, dreams, and poetic imagery.',
   ogImage: siteImage,
   ogType: 'website',
-
+  ogUrl: canonicalURL,
   twitterTitle: 'Chiu Chun-Ting | Art Series & Works Overview',
   twitterDescription: 'An archive of selected artworks and series by Chiu Chun-Ting, reflecting her poetic approach to memory, childhood, and perception.',
   twitterImage: siteImage

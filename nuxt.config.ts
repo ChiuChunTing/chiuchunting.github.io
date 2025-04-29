@@ -1,16 +1,22 @@
 const siteURL = 'https://chiuchunting.github.io/'
+const alternateURL = 'https://chiuchunting.github.io/en/'
 const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_post1200X630smart/v1744778738/exhibition_2025.jpg'
 
 const title = '邱君婷 Chiu Chun-Ting'
 const keyword = '邱君婷, Chiu Chun-Ting, contemporary artist, visual art, symbolic painting, Taiwanese artist, art portfolio, mixed media, dreamlike art'
 
 export default defineNuxtConfig({
+  ssr: false,
   app: {
     baseURL: '/',
     head: {
       title: title,
+      htmlAttrs: {
+        lang: 'zh-TW'
+      },
       link: [
         { rel: 'canonical', href: siteURL },
+        { rel: 'alternate', hreflang: 'en-US', href: alternateURL },
         { rel: 'icon', type: 'image/png', href: `${siteURL}favicon-96x96.png` },
         { rel: 'icon', type: 'image/svg+xml', href: `${siteURL}favicon.svg` },
         { rel: 'shortcut icon', href: `${siteURL}favicon.ico` },
@@ -45,12 +51,46 @@ export default defineNuxtConfig({
         },
 
         { name: 'twitter:image', content: siteImage },
-        { property: 'og:image', content: siteImage }
+        { property: 'og:image', content: siteImage },
+        { property: 'fb:app_id', content: '889708896604789' }
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "邱君婷 Chiu Chun-Ting",
+            "alternateName": "Chiu Chun-Ting",
+            "url": siteURL,
+            "image": `${siteURL}/ChiuChunTing1.jpg`,
+            "sameAs": [
+              "https://instagram.com/chiu_j_t",
+              "https://github.com/chiuchunting",
+              "https://www.facebook.com/profile.php?id=1143919654"
+            ],
+            "jobTitle": "Visual Artist",
+            "description": "邱君婷以繪畫為語言，構築游移於現實與幻想、記憶與感知的詩性空間。Chiu Chun-Ting paints a poetic space between reality, memory, and imagination through visual storytelling.",
+            "nationality": "Taiwanese",
+            "gender": "Female",
+            "knowsAbout": [
+              "Painting",
+              "Visual Art",
+              "Exhibition",
+              "Symbolism",
+              "Poetic Narratives"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Chiu Chun-Ting Studio"
+            }
+          }),
+          tagPriority: 1
+        }
       ]
     }
   },
-  ssr: false,
-  modules: ['@nuxtjs/cloudinary', 'nuxt-swiper', '@nuxtjs/i18n', '@nuxtjs/sitemap', 'nuxt-schema-org'],
+  modules: ['@nuxtjs/cloudinary', 'nuxt-swiper', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
   compatibilityDate: '2025-04-23',
   devtools: { enabled: true },
   runtimeConfig: {

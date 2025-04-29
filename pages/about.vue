@@ -8,6 +8,14 @@ const artist = ref(null)
 
 const title = 'About | 邱君婷 Chiu Chun-Ting | Biography & Artistic Statement'
 const siteImage = 'https://res.cloudinary.com/dxddw5huw/image/upload/t_post1200X630/v1744906920/unicorn_main.png'
+const canonicalURL = 'https://chiuchunting.github.io/about'
+const alternateURL = 'https://chiuchunting.github.io/en/about'
+useHead({
+  link: [
+    { rel: 'canonical', href: canonicalURL },
+    { rel: 'alternate', hreflang: 'en-US', href: alternateURL }
+  ]
+})
 
 useSeoMeta({
   title,
@@ -23,6 +31,7 @@ useSeoMeta({
   ogType: 'profile',
   ogImage: siteImage,
   twitterImage: siteImage,
+  ogUrl: canonicalURL,
 
   // Open Graph Profile-specific
   'profile:first_name': 'Chun-Ting',

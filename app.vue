@@ -8,32 +8,6 @@ const { locale } = useI18n()
 const localePath = useLocalePath()
 const baseURL = 'https://chiuchunting.github.io'
 
-// https://nuxtseo.com/docs/schema-org/getting-started/introduction
-useSchemaOrg([
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "邱君婷 Chiu Chun-Ting",
-    "alternateName": "Chiu Chun-Ting",
-    "url": baseURL,
-    "image": `${baseURL}/ChiuChunTing1.jpg`,
-    "sameAs": [
-      "https://instagram.com/chiu_j_t",
-      "https://github.com/chiuchunting",
-      "https://www.facebook.com/profile.php?id=1143919654",
-    ],
-    "jobTitle": "Visual Artist",
-    "description": "邱君婷以繪畫為語言，構築游移於現實與幻想、記憶與感知的詩性空間。Chiu Chun-Ting paints a poetic space between reality, memory, and imagination through visual storytelling.",
-    "nationality": "Taiwanese",
-    "gender": "Female",
-    "knowsAbout": ["Painting", "Visual Art", "Exhibition", "Symbolism", "Poetic Narratives"],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Chiu Chun-Ting Studio"
-    }
-  }
-])
-
 // 監聽 route（頁面切換）: locale-語系切換目前會換path
 watch(
   () => route.path,
@@ -56,8 +30,7 @@ watch(
       meta: [
         { property: 'og:locale', content: lang },
         { property: 'og:locale:alternate', content: alternate },
-        { property: 'og:url', content: canonicalURL },
-        { property: 'fb:app_id', content: '889708896604789' }
+        { property: 'og:url', content: canonicalURL }
       ]
     })
   }, 
