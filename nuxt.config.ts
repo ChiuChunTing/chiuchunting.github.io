@@ -50,12 +50,7 @@ export default defineNuxtConfig({
     }
   },
   ssr: false,
-  modules: [
-    '@nuxtjs/cloudinary',
-    'nuxt-swiper',
-    '@nuxtjs/i18n',
-    '@nuxtjs/sitemap'
-  ],
+  modules: ['@nuxtjs/cloudinary', 'nuxt-swiper', '@nuxtjs/i18n', '@nuxtjs/sitemap', 'nuxt-schema-org'],
   compatibilityDate: '2025-04-23',
   devtools: { enabled: true },
   runtimeConfig: {
@@ -79,6 +74,7 @@ export default defineNuxtConfig({
   },
   site: { 
     url: siteURL, 
+    host: siteURL, 
     name: title
   }, 
   plugins: [

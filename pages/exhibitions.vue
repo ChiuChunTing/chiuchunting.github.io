@@ -1,6 +1,4 @@
 <script setup>
-import { useSchemaOrg } from '@unhead/schema-org/vue'
-
 import { exhibitionList } from '@/assets/data/exhibition'
 import UnicornIndicator from '@/assets/components/layout/Unicorn.vue'
 import WebFooter from '@/assets/components/layout/WebFooter.vue'

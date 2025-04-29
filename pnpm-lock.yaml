@@ -26,6 +26,9 @@ importers:
       nuxt:
         specifier: ^3.14.1592
         version: 3.16.2(@parcel/watcher@2.5.1)(db0@0.3.1)(eslint@9.23.0(jiti@2.4.2))(ioredis@5.6.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.39.0)(sass@1.86.3)(terser@5.39.0)(typescript@5.8.2)(vite@6.2.5(jiti@2.4.2)(sass@1.86.3)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
+      nuxt-schema-org:
+        specifier: 5.0.5
+        version: 5.0.5(magicast@0.3.5)(vue@3.5.13(typescript@5.8.2))
       nuxt-swiper:
         specifier: 2.0.0
         version: 2.0.0(magicast@0.3.5)
@@ -39,9 +42,6 @@ importers:
         specifier: latest
         version: 4.5.0(vue@3.5.13(typescript@5.8.2))
     devDependencies:
-      '@unhead/schema-org':
-        specifier: ^2.0.8
-        version: 2.0.8(@unhead/vue@2.0.3(vue@3.5.13(typescript@5.8.2)))
       sass:
         specifier: ^1.83.0
         version: 1.86.3
@@ -2467,6 +2467,14 @@ packages:
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
+  nuxt-schema-org@5.0.5:
+    resolution: {integrity: sha512-OXV1WdSpyttiAgRicdtqMHYMNcgj7hcws2zRmgI9zMI/Rbs6z4/74aZLtSM3YNS/Bvbr9LcCSzYT6WJOvEB1Yg==}
+    peerDependencies:
+      '@unhead/vue': ^2.0.7
+    peerDependenciesMeta:
+      '@unhead/vue':
+        optional: true
+
   nuxt-site-config-kit@3.1.9:
     resolution: {integrity: sha512-bcmpajYJgkNzA0jTq6CmmhKF2wHZUUKeVx/CIGI8lwWuAD81EBUZN0T4iKvVDo54g9UBrUUl8/5GhD65YBBG0A==}
 
@@ -4766,14 +4774,12 @@ snapshots:
       '@typescript-eslint/types': 8.29.0
       eslint-visitor-keys: 4.2.0
 
-  '@unhead/schema-org@2.0.8(@unhead/vue@2.0.3(vue@3.5.13(typescript@5.8.2)))':
+  '@unhead/schema-org@2.0.8':
     dependencies:
       defu: 6.1.4
       ohash: 2.0.11
       ufo: 1.6.1
       unhead: 2.0.8
-    optionalDependencies:
-      '@unhead/vue': 2.0.3(vue@3.5.13(typescript@5.8.2))
 
   '@unhead/vue@2.0.3(vue@3.5.13(typescript@5.8.2))':
     dependencies:
@@ -6298,6 +6304,22 @@ snapshots:
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
+
+  nuxt-schema-org@5.0.5(magicast@0.3.5)(vue@3.5.13(typescript@5.8.2)):
+    dependencies:
+      '@nuxt/kit': 3.16.2(magicast@0.3.5)
+      '@unhead/schema-org': 2.0.8
+      defu: 6.1.4
+      nuxt-site-config: 3.1.9(magicast@0.3.5)(vue@3.5.13(typescript@5.8.2))
+      pathe: 2.0.3
+      pkg-types: 2.1.0
+      sirv: 3.0.1
+    transitivePeerDependencies:
+      - '@unhead/react'
+      - '@unhead/solid-js'
+      - '@unhead/svelte'
+      - magicast
+      - vue
 
   nuxt-site-config-kit@3.1.9(magicast@0.3.5)(vue@3.5.13(typescript@5.8.2)):
     dependencies:

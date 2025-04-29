@@ -1,5 +1,4 @@
 <script setup>
-import { useSchemaOrg } from '@unhead/schema-org/vue'
 import { useRoute } from 'vue-router'
 import CustomLoadingIndicator from '~/assets/components/layout/Loading.vue'
 import HamburgerMenu from '~/assets/components/layout/HamburgerMenu.vue'
@@ -9,7 +8,7 @@ const { locale } = useI18n()
 const localePath = useLocalePath()
 const baseURL = 'https://chiuchunting.github.io'
 
-// https://nuxtseo.com/learn/mastering-meta/schema-org
+// https://nuxtseo.com/docs/schema-org/getting-started/introduction
 useSchemaOrg([
   {
     "@context": "https://schema.org",
